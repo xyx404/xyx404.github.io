@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>anzhiyu随便逛逛people模式与作者卡片显示名字</title>
+      <link href="/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(2)/"/>
+      <url>/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(2)/</url>
+      
+        <content type="html"><![CDATA[<h1 id="首页随便逛逛-people-模式"><a class="markdownIt-Anchor" href="#首页随便逛逛-people-模式"></a> 首页随便逛逛 people 模式。</h1><p>如果 people 模式图片没加载，请将 <code>_config.anzhiyu.yml</code> 里的</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">peoplecanvas:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">img:</span> <span class="string">https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png</span></span><br></pre></td></tr></table></figure><p>改为</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">peoplecanvas:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">img:</span> <span class="string">https://unpkg.com/xyx404blogphoto@1.0.3/img/sbgg.png</span></span><br></pre></td></tr></table></figure><hr /><h2 id="首页随便逛逛技能点模式请参照官方文档进行设置"><a class="markdownIt-Anchor" href="#首页随便逛逛技能点模式请参照官方文档进行设置"></a> 首页随便逛逛技能点模式，请参照<a href="https://docs.anheyu.com/advanced/">官方文档</a>进行设置。</h2><h1 id="作者卡片显示名字"><a class="markdownIt-Anchor" href="#作者卡片显示名字"></a> 作者卡片显示名字。</h1><p>将 <code>_config.anzhiyu.yml</code> 里的</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="comment"># Github: https://github.com/anzhiyu-c || anzhiyu-icon-github</span></span><br><span class="line">  <span class="comment"># BiliBili: https://space.bilibili.com/372204786 || anzhiyu-icon-bilibili</span></span><br></pre></td></tr></table></figure><p>改成</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="attr">Github:</span> <span class="string">https://github.com/anzhiyu-c</span> <span class="string">||</span> <span class="string">anzhiyu-icon-github</span></span><br><span class="line">  <span class="attr">BiliBili:</span> <span class="string">https://space.bilibili.com/372204786</span> <span class="string">||</span> <span class="string">anzhiyu-icon-bilibili</span></span><br></pre></td></tr></table></figure><p>就可以了。<br />链接是可以改的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建主题为 anzhiyu 的 hexo 博客(1)</title>
+      <link href="/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(1)/"/>
+      <url>/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(1)/</url>
+      
+        <content type="html"><![CDATA[<h1 id="本文的操作均在-windows-系统下运行"><a class="markdownIt-Anchor" href="#本文的操作均在-windows-系统下运行"></a> 本文的操作均在 windows 系统下运行。</h1><h1 id="安装-hexo"><a class="markdownIt-Anchor" href="#安装-hexo"></a> 安装 hexo</h1><ol><li>下载 Git，<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/">阿里镜像链接</a>。</li><li>下载 Node.js，<a href="https://nodejs.cn/download/">官网链接</a>。</li><li>在一个空的文件夹右键点击 Open Git Bash here。</li><li>运行 <code>npm install -g hexo-cli</code> 如果因为网络问题运行失败，请运行 <code>npm config set registry https://registry.npmmirror.com</code> 后重新运行 <code>npm install -g hexo-cli</code>。</li><li>运行 <code>hexo init</code> 接着运行 <code>npm install</code>。</li><li>运行 <code>hexo s</code> 然后在浏览器打开 <code>http://localhost:4000</code> 就可以查看初始的博客了。</li></ol><hr /><h2 id="注ctrlc-停止博客"><a class="markdownIt-Anchor" href="#注ctrlc-停止博客"></a> 注：CTRL+C 停止博客。</h2><h1 id="安装-anzhiyu-主题"><a class="markdownIt-Anchor" href="#安装-anzhiyu-主题"></a> 安装 anzhiyu 主题</h1><ol><li>打开 Open Git Bash here。</li><li>运行 <code>git clone -b main https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git themes/anzhiyu</code> 或 <code>git clone -b main https://ghproxy.com/https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git themes/anzhiyu</code>，然后运行 <code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>。</li><li>打开博客目录的 _config.yml 文件。</li><li>找到 <code>theme: landscape</code> 把 <code>landscape</code> 改成 <code>anzhiyu</code>，注意 <code>theme: </code> 后面有个空格。</li><li>在博客目录新建文件 <code>_config.anzhiyu.yml</code> 然后打开 <code>/themes/anzhiyu/_config.yml</code> 复制里面的文字到 <code>_config.anzhiyu.yml</code>。</li><li>之后运行 <code>hexo s</code> 然后在浏览器打开 <code>http://localhost:4000</code> 就可以看到效果了。</li></ol><h1 id="配置-_configyml-文件"><a class="markdownIt-Anchor" href="#配置-_configyml-文件"></a> 配置 <code>_config.yml</code> 文件</h1><p>把 <code>language: en</code> 改为 <code>language: zh-CN</code>，<code>author: </code> 后面写你的名字。<br /><code>title: </code> 后写你的博客的名字注意，如果改名后图片不加载，可能是因为某个特殊字符如 <code>'</code>。<br /><code>description: ''</code> 在 ‘’ 里加入一句描述，什么都行，推荐加<code>这是一个描述</code>。</p><p>配置 <code>_config.anzhiyu.yml</code> 文件请看 (2)，没更新没有。</p><p><a href="https://www.bilibili.com/video/BV1Rs4y127hu/?spm_id_from=333.788&amp;vd_source=4d9717102296e4b7a60ecdfad55ae2dd">官方安装视频</a>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>反馈</title>
       <link href="/2024/09/19/%E5%8F%8D%E9%A6%88/"/>
       <url>/2024/09/19/%E5%8F%8D%E9%A6%88/</url>
