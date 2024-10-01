@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>anzhiyu 主题修改头像和新品主题</title>
+      <link href="/2024/10/01/azy%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E5%A4%B4%E5%83%8F%E5%92%8C%E6%96%B0%E5%93%81%E4%B8%BB%E9%A2%98/"/>
+      <url>/2024/10/01/azy%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E5%A4%B4%E5%83%8F%E5%92%8C%E6%96%B0%E5%93%81%E4%B8%BB%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="本文的操作均在-windows-系统下运行"><a class="markdownIt-Anchor" href="#本文的操作均在-windows-系统下运行"></a> 本文的操作均在 windows 系统下运行。</h1><h1 id="修改头像"><a class="markdownIt-Anchor" href="#修改头像"></a> 修改头像</h1><h2 id="作者卡片的头像"><a class="markdownIt-Anchor" href="#作者卡片的头像"></a> 作者卡片的头像</h2><p>在主题配置文件中找到</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="attr">img:</span> <span class="string">https://bu.dusays.com/2023/04/27/64496e511b09c.jpg</span></span><br><span class="line">  <span class="attr">effect:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>把 <code>img:</code> 后的链接改成你头像的链接就可以了。</p><h2 id="加载动画的头像"><a class="markdownIt-Anchor" href="#加载动画的头像"></a> 加载动画的头像</h2><p>在主题配置文件中找到</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">preloader:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># source</span></span><br><span class="line">  <span class="comment"># 1. fullpage-loading</span></span><br><span class="line">  <span class="comment"># 2. pace (progress bar)</span></span><br><span class="line">  <span class="comment"># else all</span></span><br><span class="line">  <span class="attr">source:</span> <span class="number">3</span></span><br><span class="line">  <span class="comment"># pace theme (see https://codebyzach.github.io/pace/)</span></span><br><span class="line">  <span class="attr">pace_css_url:</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg</span> </span><br></pre></td></tr></table></figure><p>把 <code>avatar:</code> 后的链接改成你头像的链接就可以了。</p><h1 id="修改新品主题"><a class="markdownIt-Anchor" href="#修改新品主题"></a> 修改新品主题</h1><p>在主题配置文件中按 Ctrl+F 查找内容是<code>新品主题</code>然后就可以修改了，<code>tips:</code> 后的文字对应 <img src="https://cdn.jsdelivr.net/npm/xyx404blogphoto@1.1.8/imginwz/xinpinzhuti.png" alt="" /><br /><code>title: </code> 后的文字对应 <img src="https://cdn.jsdelivr.net/npm/xyx404blogphoto@1.1.8/imginwz/Themeanzhiyu.png" alt="" /><br /><code>image:</code> 后则是显示的图片，<code>link:</code> 后是点击后跳转的链接。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>anzhiyu随便逛逛people模式与作者卡片显示名字</title>
       <link href="/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(2)/"/>
       <url>/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(2)/</url>
@@ -29,7 +54,7 @@
     
     
     <entry>
-      <title>搭建主题为 anzhiyu 的 hexo 博客(1)</title>
+      <title>搭建主题为 anzhiyu 的 hexo 博客</title>
       <link href="/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(1)/"/>
       <url>/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(1)/</url>
       
@@ -71,7 +96,7 @@
       <link href="/2024/09/16/%E6%9C%AC%E7%BD%91%E7%AB%99/"/>
       <url>/2024/09/16/%E6%9C%AC%E7%BD%91%E7%AB%99/</url>
       
-        <content type="html"><![CDATA[<h1 id="本人洛谷"><a class="markdownIt-Anchor" href="#本人洛谷"></a> <a href="https://www.luogu.com.cn/user/1123573#article">本人洛谷</a>。</h1><h1 id="本网站图片为网上找的如有侵权请评论在此文章下联系我"><a class="markdownIt-Anchor" href="#本网站图片为网上找的如有侵权请评论在此文章下联系我"></a> 本网站图片为网上找的，如有侵权请评论在此文章下联系我。</h1><p>本网站使用 Hexo anzhiyu +github 搭建，anzhiyu 官网-&gt;<a href="https://blog.anheyu.com/">点我跳转</a>，anzhiyu 安装教程-&gt;<a href="https://www.bilibili.com/video/BV1Rs4y127hu/?spm_id_from=333.788&amp;vd_source=4d9717102296e4b7a60ecdfad55ae2dd">跳转哔哩哔哩</a>。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="本人洛谷"><a class="markdownIt-Anchor" href="#本人洛谷"></a> <a href="https://www.luogu.com.cn/user/1123573#article">本人洛谷</a>。</h1><h1 id="本网站-npm-cdn-为-cdnjsdelivrnet"><a class="markdownIt-Anchor" href="#本网站-npm-cdn-为-cdnjsdelivrnet"></a> 本网站 npm CDN 为 <a href="https://cdn.jsdelivr.net/">cdn.jsdelivr.net</a>。</h1><h1 id="本网站图片为网上找的如有侵权请评论在此文章下联系我"><a class="markdownIt-Anchor" href="#本网站图片为网上找的如有侵权请评论在此文章下联系我"></a> 本网站图片为网上找的，如有侵权请评论在此文章下联系我。</h1><p>本网站使用 Hexo anzhiyu +github 搭建，anzhiyu 官网-&gt;<a href="https://blog.anheyu.com/">点我跳转</a>，anzhiyu 安装教程-&gt;<a href="https://www.bilibili.com/video/BV1Rs4y127hu/?spm_id_from=333.788&amp;vd_source=4d9717102296e4b7a60ecdfad55ae2dd">跳转哔哩哔哩</a>。</p>]]></content>
       
       
       
