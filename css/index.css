@@ -8763,6 +8763,39 @@ body[data-type="categories"] #tag #tag-page-tags a {
 h1.page-title + .tag-cloud-list {
   text-align: left;
 }
+#page-header,
+#page-header:before {
+  background-color: transparent !important;
+  background-image: unset !important;
+}
+.top-img {
+  height: 12.5rem;
+  display: block;
+  margin: -50px -40px 50px -40px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.top-img .read-mode {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .top-img {
+    margin: -1.8rem -0.7rem 1.8rem -0.7rem;
+  }
+}
+[data-theme='dark'] .top-img {
+  filter: brightness(0.8);
+}
 @media screen and (min-width: 1201px) and (max-width: 768px) {
   #recent-posts>.recent-post-item {
     width: 100%;
@@ -10385,6 +10418,13 @@ h1.page-title + .tag-cloud-list {
     margin-top: -1px;
   }
 }
+#footer:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  content: '';
+}
 #footer-bar {
   padding: 1rem;
   color: var(--anzhiyu-fontcolor);
@@ -10749,6 +10789,17 @@ h1.page-title + .tag-cloud-list {
   height: 100vh;
   background-attachment: fixed;
   border-radius: 0;
+}
+@media screen and (max-width: 768px) {
+  #page-header #center-console + label i {
+    background: var(--font-color);
+  }
+}
+#page-header #site-info {
+  position: absolute;
+  top: 43%;
+  padding: 0 10px;
+  width: 100%;
 }
 #page-header #site-title,
 #page-header #site-subtitle,
@@ -13508,6 +13559,32 @@ h1.page-title + .tag-cloud-list {
     transition: 0.3s;
     -webkit-box-shadow: var(--anzhiyu-shadow-main);
     box-shadow: var(--anzhiyu-shadow-main);
+  }
+}
+@media screen and (max-width: 768px) {
+  #nav {
+    background: var(--anzhiyu-card-bg) !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  #page-header #nav #site-name,
+  #page-header #nav #toggle-menu,
+  #page-header:not(.not-top-img) #nav .back-home-button {
+    color: var(--font-color) !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  #blog_name a,
+  .mask-name-container a,
+  #menus a,
+  #nav-right .nav-button a,
+  #nav-right #toggle-menu a {
+    color: var(--font-color) !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  div#bbTimeList {
+    margin: 20px 15px !important;
   }
 }
 #pagination .toPageGroup {
