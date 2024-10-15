@@ -1,3 +1,4 @@
+https://xyx404.github.io/2024/10/15/uptimerobot%E5%AE%9E%E7%8E%B0%E5%8F%8B%E9%93%BE%E7%9B%91%E6%8E%A7/
 https://xyx404.github.io/link/index.html
 https://xyx404.github.io/2024/10/07/CF2010B%20Three%20Brothers/
 https://xyx404.github.io/2024/10/06/20241006%E8%AE%B0%E5%BD%95/
@@ -48,11 +49,11 @@ https://xyx404.github.io/categories/index.html
 https://xyx404.github.io/
 https://xyx404.github.io/tags/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/
 https://xyx404.github.io/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/
-https://xyx404.github.io/tags/hexo/
 https://xyx404.github.io/tags/c-STL/
 https://xyx404.github.io/tags/%E7%AC%94%E8%AE%B0/
+https://xyx404.github.io/tags/hexo/
 https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/
 https://xyx404.github.io/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/
-https://xyx404.github.io/categories/hexo/
 https://xyx404.github.io/categories/%E7%AC%94%E8%AE%B0/
+https://xyx404.github.io/categories/hexo/
 https://xyx404.github.io/categories/%E7%AC%94%E8%AE%B0/c-STL/
