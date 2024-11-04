@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>CSP2024 反思</title>
+      <link href="/2024/11/04/csp2024%E5%8F%8D%E6%80%9D/"/>
+      <url>/2024/11/04/csp2024%E5%8F%8D%E6%80%9D/</url>
+      
+        <content type="html"><![CDATA[<p>CSP-J：</p><p>总分：280。</p><p>T1：AC，map。</p><p>T2：边界条件写错了，用了 bfs，边界条件只考虑了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo separator="true">,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x,y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>，没有考虑 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>x</mi><mo separator="true">,</mo><mi>t</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">tx,ty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>。(<strong>出考场后马上</strong>用手机打了遍代码，赛后打的是对的…)。</p><p>T3：AC，数学规律。</p><p>T4：不会qaq。</p><p>CSP-S：</p><p>总分：140</p><p>T1：AC，贪心。</p><p>T2：写了个暴力(我一普及组来写CSP-S?)。</p><p>T3,T4：没写。</p><p>总结：不会+边界条件。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 反思 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 反思 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>题解：UVA10081 Tight Words</title>
       <link href="/2024/11/03/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10081%20Tight%20Words/"/>
       <url>/2024/11/03/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10081%20Tight%20Words/</url>
