@@ -1811,3 +1811,10 @@ document.addEventListener("DOMContentLoaded", function () {
   refreshFn();
   unRefreshFn();
 });
+
+function switchCommentBarrage(){
+    let commentBarrage = document.querySelector('.comment-barrage');
+    if(commentBarrage){
+        $(commentBarrage).toggle()
+    }
+}
