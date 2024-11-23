@@ -524,13 +524,6 @@
 
   
   <url>
-    <loc>https://xyx404.github.io/tags/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/</loc>
-    <lastmod>2024-11-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xyx404.github.io/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2024-11-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -538,7 +531,7 @@
   </url>
   
   <url>
-    <loc>https://xyx404.github.io/tags/hexo/</loc>
+    <loc>https://xyx404.github.io/tags/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/</loc>
     <lastmod>2024-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -565,14 +558,14 @@
     <priority>0.2</priority>
   </url>
   
-
-  
   <url>
-    <loc>https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/</loc>
+    <loc>https://xyx404.github.io/tags/hexo/</loc>
     <lastmod>2024-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
+  
+
   
   <url>
     <loc>https://xyx404.github.io/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/</loc>
@@ -582,7 +575,7 @@
   </url>
   
   <url>
-    <loc>https://xyx404.github.io/categories/hexo/</loc>
+    <loc>https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/</loc>
     <lastmod>2024-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -597,6 +590,13 @@
   
   <url>
     <loc>https://xyx404.github.io/categories/%E5%8F%8D%E6%80%9D/</loc>
+    <lastmod>2024-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyx404.github.io/categories/hexo/</loc>
     <lastmod>2024-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
