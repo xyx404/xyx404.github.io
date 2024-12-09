@@ -609,13 +609,6 @@
   </url>
   
   <url>
-    <loc>https://xyx404.github.io/tags/hexo/</loc>
-    <lastmod>2024-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xyx404.github.io/tags/c-STL/</loc>
     <lastmod>2024-12-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -624,6 +617,13 @@
   
   <url>
     <loc>https://xyx404.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2024-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyx404.github.io/tags/hexo/</loc>
     <lastmod>2024-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -702,14 +702,14 @@
   </url>
   
   <url>
-    <loc>https://xyx404.github.io/categories/hexo/</loc>
+    <loc>https://xyx404.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xyx404.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://xyx404.github.io/categories/hexo/</loc>
     <lastmod>2024-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
