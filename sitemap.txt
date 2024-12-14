@@ -62,10 +62,10 @@ https://xyx404.github.io/tags/index.html
 https://xyx404.github.io/categories/index.html
 https://xyx404.github.io/
 https://xyx404.github.io/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/
+https://xyx404.github.io/tags/%E4%BA%8C%E5%88%86/
 https://xyx404.github.io/tags/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/
 https://xyx404.github.io/tags/%E6%A8%A1%E6%8B%9F/
 https://xyx404.github.io/tags/set/
-https://xyx404.github.io/tags/%E4%BA%8C%E5%88%86/
 https://xyx404.github.io/tags/%E6%9A%B4%E5%8A%9B/
 https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/
 https://xyx404.github.io/tags/hexo/
