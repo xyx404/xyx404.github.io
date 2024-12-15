@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>ABC384 E - Takahashi is Slime 2</title>
+      <link href="/2024/12/14/ABC384%20E%20-%20Takahashi%20is%20Slime%202/"/>
+      <url>/2024/12/14/ABC384%20E%20-%20Takahashi%20is%20Slime%202/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.43/ABC384E.webp" alt="封面" /></p><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路：</h2><p>从一个点出发前往其它点，要求必须到达点的强度严格小于我们的强度的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mi>X</mi></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\dfrac{1}{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 倍，每次都可以从我们走过的地方形成的多边形的边上向没有到过的地方。</p><p>考虑 bfs。</p><p>与 bfs 模版不同的地方就在于每次都可以从我们走过的地方形成的多边形的边上向没有到过的地方，由此可以使用堆进行处理，每次把在边的旁边的点放进堆，每次取力量最小的点走。<br />如果这时要走到点的强度已经不严格小于现在的强度的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mi>X</mi></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\dfrac{1}{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 倍了，那么可以直接输出现在的值，然后结束程序。<br />可以这样的原因是我们采用了堆并且每次取的的最小强度，那么现在最小强度已经不严格小于现在的强度的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mi>X</mi></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\dfrac{1}{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 倍了，后面的强度只会大于或等于最小强度，所以也会是相同的结果，所以可以直接结束。</p><h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码：</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="type">int</span> H,W,p,q,x;</span><br><span class="line">LL s[<span class="number">510</span>][<span class="number">510</span>];</span><br><span class="line"><span class="type">bool</span> bj[<span class="number">510</span>][<span class="number">510</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">LL x,y,v;</span><br><span class="line"><span class="keyword">friend</span> <span class="type">bool</span> <span class="keyword">operator</span> &lt;(node x,node y)&#123;</span><br><span class="line"><span class="keyword">return</span> x.v&gt;y.v;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line">LL now;</span><br><span class="line">priority_queue&lt;node&gt;dl;</span><br><span class="line"><span class="type">int</span> dx[]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;,dy[]=&#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">cin&gt;&gt;H&gt;&gt;W&gt;&gt;x&gt;&gt;p&gt;&gt;q;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=H;i++)&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=W;j++)&#123;</span><br><span class="line">cin&gt;&gt;s[i][j];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">now=<span class="number">0</span>;</span><br><span class="line">bj[p][q]=<span class="number">1</span>;</span><br><span class="line"><span class="type">bool</span> bjj=<span class="number">0</span>;</span><br><span class="line">dl.<span class="built_in">push</span>(&#123;p,q,s[p][q]&#125;);</span><br><span class="line"><span class="keyword">while</span>(dl.<span class="built_in">empty</span>()==<span class="number">0</span>)&#123;</span><br><span class="line">node tamp=dl.<span class="built_in">top</span>();dl.<span class="built_in">pop</span>();</span><br><span class="line"><span class="comment">//cout&lt;&lt;tamp.x&lt;&lt;&quot; &quot;&lt;&lt;tamp.y&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line"><span class="keyword">if</span>(bjj&amp;&amp;<span class="number">1.00000</span>*now/x&lt;=tamp.v)<span class="keyword">break</span>;</span><br><span class="line">now+=tamp.v;</span><br><span class="line">bjj=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line"><span class="type">int</span> tx=dx[i]+tamp.x,ty=dy[i]+tamp.y;</span><br><span class="line"><span class="keyword">if</span>(tx&gt;=<span class="number">1</span>&amp;&amp;ty&gt;=<span class="number">1</span>&amp;&amp;tx&lt;=H&amp;&amp;ty&lt;=W&amp;&amp;!bj[tx][ty])&#123;</span><br><span class="line">bj[tx][ty]=<span class="number">1</span>;</span><br><span class="line">dl.<span class="built_in">push</span>(&#123;tx,ty,s[tx][ty]&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cout&lt;&lt;now;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://atcoder.jp/contests/abc384/submissions/60771485">AC 记录</a>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 洛谷题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> bfs </tag>
+            
+            <tag> 优先队列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>题解：UVA628 Passwords</title>
+      <link href="/2024/12/14/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA628%20Passwords/"/>
+      <url>/2024/12/14/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA628%20Passwords/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.43/UVA628.webp" alt="封面" /></p><h2 id="题意"><a class="markdownIt-Anchor" href="#题意"></a> 题意：</h2><p>有多组数据。</p><p>给出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 个字符串和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 个规则，求每个规则可以组成的所有密码。</p><p>在规则中 <code>#</code> 表示的是一个给出的字符串，<code>0</code> 表示的是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn></mrow><annotation encoding="application/x-tex">9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> 中的一个数字。</p><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路：</h2><p>深度优先搜索。</p><p>深度优先搜索函数传入两个量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">now</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>n</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">ans</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span></span></span></span>。</p><p>其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">now</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span> 表示的是现在是规则里下标为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>w</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">now+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 字符，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>n</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">ans</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span></span></span></span> 表示现在搜索到的答案。</p><p>当规则里下标为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>w</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">now+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 字符为 <code>#</code> 时，遍历给出的字符串，对于每一个给出的字符串都放在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>n</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">ans</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span></span></span></span> 后进行一次 dfs，注意不能影响后面的操作，如当遍历的是第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个给出的字符串时，不能影响第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 及其之后的操作。<br />当规则里下标为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>w</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">now+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 字符为 <code>0</code> 时，把 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn></mrow><annotation encoding="application/x-tex">9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> 按顺序放一次，同样不能影响后面的操作。<br />具体的代码为：</p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(r[now]==<span class="string">&#x27;#&#x27;</span>)&#123;<span class="comment">// 是一个给出的字符串 </span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="built_in">dfs</span>(now<span class="number">+1</span>,ans+s[i]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(r[now]==<span class="string">&#x27;0&#x27;</span>)&#123;<span class="comment">// 是一个数字</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line">    <span class="type">char</span> a=i+<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="built_in">dfs</span>(now<span class="number">+1</span>,ans+a);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="完整代码"><a class="markdownIt-Anchor" href="#完整代码"></a> 完整代码：</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line">string r;</span><br><span class="line">string s[<span class="number">120</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> now<span class="comment">/*现在是 r 的第几个字符*/</span>,string ans<span class="comment">/*答案*/</span>)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(now&gt;=r.<span class="built_in">size</span>())&#123;</span><br><span class="line">cout&lt;&lt;ans&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">if</span>(r[now]==<span class="string">&#x27;#&#x27;</span>)&#123;<span class="comment">// 是一个给出的字符串 </span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line"><span class="built_in">dfs</span>(now<span class="number">+1</span>,ans+s[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(r[now]==<span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line"><span class="type">char</span> a=i+<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line"><span class="built_in">dfs</span>(now<span class="number">+1</span>,ans+a);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">while</span>(cin&gt;&gt;n)&#123;<span class="comment">// 不确定组数，每次如果有 n 输入说明有一组 </span></span><br><span class="line">cout&lt;&lt;<span class="string">&quot;--\n&quot;</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;s[i];</span><br><span class="line">cin&gt;&gt;m;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">cin&gt;&gt;r;</span><br><span class="line"><span class="built_in">dfs</span>(<span class="number">0</span>,<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 洛谷题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> dfs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>题解：AT_abc383_c [ABC383C] Humidifier 3</title>
       <link href="/2024/12/08/%E9%A2%98%E8%A7%A3%EF%BC%9AAT_abc383_c%20%5BABC383C%5D%20Humidifier%203/"/>
       <url>/2024/12/08/%E9%A2%98%E8%A7%A3%EF%BC%9AAT_abc383_c%20%5BABC383C%5D%20Humidifier%203/</url>
@@ -322,7 +374,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 顺序结构 </tag>
             
         </tags>
       
@@ -372,7 +424,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 数学 </tag>
             
         </tags>
       
@@ -524,11 +576,9 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
-            
             <tag> 模拟 </tag>
             
-            <tag> set </tag>
+            <tag> 哈希 </tag>
             
         </tags>
       
@@ -553,7 +603,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 模拟 </tag>
             
         </tags>
       
@@ -578,7 +628,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 2024 蓝桥杯省赛 </tag>
             
         </tags>
       
@@ -603,7 +653,11 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 数学 </tag>
+            
+            <tag> 分类讨论 </tag>
+            
+            <tag> 等差数列 </tag>
             
         </tags>
       
@@ -715,7 +769,11 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 优先队列 </tag>
+            
+            <tag> 预处理 </tag>
+            
+            <tag> 链表 </tag>
             
         </tags>
       
@@ -740,7 +798,9 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 哈希 </tag>
+            
+            <tag> 结构体排序 </tag>
             
         </tags>
       
@@ -765,7 +825,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 哈希 </tag>
             
         </tags>
       
@@ -790,7 +850,9 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 模拟 </tag>
+            
+            <tag> 贪心 </tag>
             
         </tags>
       
@@ -815,7 +877,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 顺序结构 </tag>
             
         </tags>
       
@@ -840,7 +902,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> dfs </tag>
             
         </tags>
       
@@ -865,7 +927,9 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 前缀和 </tag>
+            
+            <tag> 枚举 </tag>
             
         </tags>
       
@@ -890,7 +954,11 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 分类讨论 </tag>
+            
+            <tag> 字符串 </tag>
+            
+            <tag> 2024 GESP </tag>
             
         </tags>
       
@@ -915,7 +983,11 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> dfs </tag>
+            
+            <tag> 2024 GESP </tag>
+            
+            <tag> 记忆化搜索 </tag>
             
         </tags>
       
@@ -940,7 +1012,9 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> dfs </tag>
+            
+            <tag> 2024 GESP </tag>
             
         </tags>
       
@@ -965,7 +1039,9 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 2024 GESP </tag>
+            
+            <tag> 素数判断,质数,筛法 </tag>
             
         </tags>
       
@@ -990,7 +1066,9 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 哈希 </tag>
+            
+            <tag> 计数排序 </tag>
             
         </tags>
       
@@ -1015,7 +1093,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 结构体排序 </tag>
             
         </tags>
       
@@ -1040,7 +1118,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 数学 </tag>
             
         </tags>
       
@@ -1065,7 +1143,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 模拟 </tag>
             
         </tags>
       
@@ -1090,7 +1168,9 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 模拟 </tag>
+            
+            <tag> 字符串 </tag>
             
         </tags>
       
@@ -1115,7 +1195,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 数学 </tag>
             
         </tags>
       
@@ -1140,7 +1220,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 模拟 </tag>
             
         </tags>
       
@@ -1165,7 +1245,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 计数排序 </tag>
             
         </tags>
       
@@ -1190,7 +1270,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 字符串 </tag>
             
         </tags>
       
@@ -1215,7 +1295,7 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 模拟 </tag>
             
         </tags>
       
@@ -1240,7 +1320,11 @@
       
         <tags>
             
-            <tag> 洛谷题解 </tag>
+            <tag> 数学 </tag>
+            
+            <tag> 贪心 </tag>
+            
+            <tag> USACO </tag>
             
         </tags>
       
