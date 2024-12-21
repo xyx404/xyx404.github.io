@@ -58,7 +58,7 @@
     API_URL: 'https://xyx404.us.kg/',
     ADMIN_EMAIL_MD5: '1705912b9f9e2095db615b59d1ae9fa18fbbbcd7002340518b004006f6b24884',
     PAGE_SIZE: 5,
-    LOADING_GIF: 'https://lib.bsgun.cn/Hexo-static/img/loading.gif',
+    LOADING_GIF: '/resource/loading.gif',
   
     async fetchComments() {
       const controller = new AbortController();
