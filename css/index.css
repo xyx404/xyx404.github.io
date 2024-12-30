@@ -2819,7 +2819,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: StarRailttf;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -2967,7 +2967,7 @@ a:hover {
 #site-name,
 #aside-content .author-info__name,
 #aside-content .author-info__description {
-  font-family: PingFang SC, 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
+  font-family: StarRailttf;
 }
 .is-center {
   text-align: center;
@@ -3635,7 +3635,7 @@ figure.highlight pre .javascript .function {
   height: 100%;
   vertical-align: top;
   text-align: center;
-  font-family: PingFang SC, 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
+  font-family: StarRailttf;
 }
 @media screen and (max-width: 768px) {
   .error404 #error-wrap .error-content .error-info {
@@ -8684,7 +8684,7 @@ body:has(#console.show) #nav-music {
   color: var(--anzhiyu-lighttext);
 }
 #tag #tag-page-tags a {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: StarRailttf;
   font-size: 0.9em;
 }
 #tag #tag-page-tags a:hover {
@@ -8703,7 +8703,7 @@ span.categoryes-punctuation .icon-biaoqian {
   font-size: 13px;
 }
 .tagsPageCount {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: StarRailttf;
 }
 [data-theme="light"] #post .tag_share .post-meta__box__tags span.tagsPageCount {
   background-color: transparent;
@@ -8996,7 +8996,7 @@ h1.page-title + .tag-cloud-list {
   padding: 0.5rem;
   text-align: center;
   font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: StarRailttf;
 }
 @media screen and (max-width: 768px) {
   #error-wrap .error-content .error-info {
@@ -16419,7 +16419,7 @@ li.card-category-list-item {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: -1;
   pointer-events: none;
 }
 .medium-zoom-image--opened {
