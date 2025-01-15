@@ -9,13 +9,102 @@
     <atom:link href="https://xyx404.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个普通的初中信息竞赛生的博客</description>
-    <pubDate>Fri, 03 Jan 2025 13:32:07 GMT</pubDate>
+    <pubDate>Wed, 15 Jan 2025 03:11:30 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>题解：P1048 [NOIP2005 普及组] 采药</title>
+      <link>https://xyx404.github.io/post/20250115100500.html</link>
+      <guid>https://xyx404.github.io/post/20250115100500.html</guid>
+      <pubDate>Wed, 15 Jan 2025 02:05:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.52/P1048.jpg&quot; alt=&quot;封面&quot; /&gt;&lt;/p&gt;
+&lt;div class=&#39;liushen-tag-link&#39;&gt;&lt;a class=&quot;tag-L</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.52/P1048.jpg" alt="封面" /></p><div class='liushen-tag-link'><a class="tag-Link" target="_blank" href="https://www.luogu.com.cn/article/y9l0giqv">    <div class="tag-link-tips"> 引用站外地址，不保证站点的可用性和安全性</div>    <div class="tag-link-bottom">        <div class="tag-link-left" style="background-image: url(https://cdn.luogu.com.cn/upload/usericon/1123573.png);"></div>        <div class="tag-link-right">            <div class="tag-link-title">洛谷文章链接</div>            <div class="tag-link-sitename">xyx404</div>        </div>        <i class="fa-solid fa-angle-right"></i>    </div>    </a></div><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路：</h2><div class='liushen-tag-link'><a class="tag-Link" target="_blank" href="https://oi-wiki.org/dp/knapsack/">    <div class="tag-link-tips"> 引用站外地址，不保证站点的可用性和安全性</div>    <div class="tag-link-bottom">        <div class="tag-link-left" style="background-image: url(https://ts1.cn.mm.bing.net/th?id=ODLS.d6e4be3b-39f1-452c-95b7-73797ffe79a6&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2);"></div>        <div class="tag-link-right">            <div class="tag-link-title">参考了 OI Wiki</div>            <div class="tag-link-sitename"> </div>        </div>        <i class="fa-solid fa-angle-right"></i>    </div>    </a></div><p>背包 DP 模版题。</p><p>首先定义一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span></span></span></span> 数组，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">dp_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 表示第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个物品在背包容量为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span> 时的最大价值。</p><p>考虑转移。</p><p>枚举每一个物品在背包容量剩余 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span> 时可以得到的最大价值。</p><p>如果现在枚举的剩余容量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span> 小于选择这个物品需要的容量，那么 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">dp_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 的最大值就是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">dp_{i-1,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>。</p><p>否则有两种情况，选和不选。<br />对于选的情况，背包的剩余容量会减小这个物品需要的容量，价值会增加这个物品的价值，故此情况下的价值为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mi>u</mi><mi>s</mi><mi>e</mi><msub><mi>t</mi><mi>i</mi></msub></mrow></msub><mo>+</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>c</mi><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dp_{i-1,j-uset_i}+price_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">e</span><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>；对于不选的情况，这个物品不会放进背包，所以和剩余容量不够的情况是一样的是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">dp_{i-1,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>。</p><p>在此处再解释下 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mi>u</mi><mi>s</mi><mi>e</mi><msub><mi>t</mi><mi>i</mi></msub></mrow></msub><mo>+</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>c</mi><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dp_{i-1,j-uset_i}+price_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">e</span><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，这个时候需要选择第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 件物品，因为第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 件物品需要的空间是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mi>s</mi><mi>e</mi><msub><mi>t</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">uset_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 枚举的背包容量等于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span>，所以只剩下 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>−</mo><mi>u</mi><mi>s</mi><mi>e</mi><msub><mi>t</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">j-uset_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 空间就是留给前 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 件物品，然后 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mi>u</mi><mi>s</mi><mi>e</mi><msub><mi>t</mi><mi>i</mi></msub></mrow></msub></mrow><annotation encoding="application/x-tex">dp_{i-1,j-uset_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">e</span><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 是第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 件物品，背包容量剩余 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>−</mo><mi>u</mi><mi>s</mi><mi>e</mi><msub><mi>t</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">j-uset_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 时的最大值，而现在我们又选择了第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 件物品，所以现在的价值是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mi>u</mi><mi>s</mi><mi>e</mi><msub><mi>t</mi><mi>i</mi></msub></mrow></msub><mo>+</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>c</mi><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dp_{i-1,j-uset_i}+price_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">e</span><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。</p><p>所以可以得出转移方程：</p><p>对于剩余容量大于等于选择这个物品需要的容量时</p><p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mi>u</mi><mi>s</mi><mi>e</mi><msub><mi>t</mi><mi>i</mi></msub></mrow></msub><mo>+</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>c</mi><msub><mi>e</mi><mi>i</mi></msub><mo separator="true">,</mo><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">dp_{i,j}=\max(dp_{i-1,j-uset_i}+price_i,dp_{i-1,j})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">e</span><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p><p>否则</p><p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">dp_{i,j}=dp_{i-1,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></span></p><h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码：</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="type">int</span> m,n,t;</span><br><span class="line"><span class="type">int</span> dp[<span class="number">1050</span>][<span class="number">1050</span>];</span><br><span class="line"><span class="type">int</span> uset[<span class="number">105</span>],price[<span class="number">105</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">cin&gt;&gt;t&gt;&gt;m;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">cin&gt;&gt;uset[i]&gt;&gt;price[i];</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=t;j++)&#123;</span><br><span class="line"><span class="keyword">if</span>(j&gt;=uset[i])</span><br><span class="line">dp[i][j]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>][j],dp[i<span class="number">-1</span>][j-uset[i]]+price[i]);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">dp[i][j]=dp[i<span class="number">-1</span>][j];</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;dp[m][t];</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/NOIP/">NOIP</category>
+      
+      
+      <category domain="https://xyx404.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</category>
+      
+      <category domain="https://xyx404.github.io/tags/%E8%83%8C%E5%8C%85-DP/">背包 DP</category>
+      
+      
+      <comments>https://xyx404.github.io/post/20250115100500.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>题解：AT_abc388_d [ABC388D] Coming of Age Celebration</title>
+      <link>https://xyx404.github.io/post/20250112100700.html</link>
+      <guid>https://xyx404.github.io/post/20250112100700.html</guid>
+      <pubDate>Sun, 12 Jan 2025 02:07:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.51/abc388d.jpg&quot; alt=&quot;封面&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/articl</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.51/abc388d.jpg" alt="封面" /></p><p><a href="https://www.luogu.com.cn/article/2u9au7o4">洛谷文章链接</a></p><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路：</h2><p>模拟。</p><p>定义一个变量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>i</mi><mi>v</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">give</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span></span></span></span> 表示现在可以给珠子的人数，再定义一个数组 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">R_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 表示有多少人只能给到第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个人。</p><p>每一个成年的人在自己还要珠子的时候必须要给刚刚成年的人一个珠子，所以第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个人要给 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">n-i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个珠子，可以得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>i</mi><mi>v</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">give</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span></span></span></span> 个珠子，如果第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个人的数量加上之前成年的人给他的数量不够给后面所有的刚成年的，那么计算他能给到第几个人，更新 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 数组，并让 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>i</mi><mi>v</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">give</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span></span></span></span> 加一还要记得把 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 修改为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>；如果够那么 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 就等于他加上 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>i</mi><mi>v</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">give</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span></span></span></span> 后给减去他成年后还有多少个未成年的数量，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>i</mi><mi>v</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">give</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span></span></span></span> 也要加一。</p><p>更新完第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个人后让 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>i</mi><mi>v</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">give</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span></span></span></span> 减去只能给到第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个人的数量，也就是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">R_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。</p><h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码：</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line">LL T=<span class="number">1</span>;</span><br><span class="line">LL n;</span><br><span class="line">LL a[<span class="built_in">int</span>(<span class="number">5</span>*<span class="number">1e5</span><span class="number">+10</span>)];</span><br><span class="line">LL R[<span class="built_in">int</span>(<span class="number">5</span>*<span class="number">1e5</span><span class="number">+10</span>)];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//cin&gt;&gt;T;</span></span><br><span class="line"><span class="keyword">while</span>(T--)&#123;</span><br><span class="line">cin&gt;&gt;n;</span><br><span class="line"><span class="type">int</span> give=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">cin&gt;&gt;a[i];</span><br><span class="line"></span><br><span class="line"><span class="comment">//cout&lt;&lt;give&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line"><span class="keyword">if</span>(a[i]-(n-i)+give&lt;<span class="number">0</span>)&#123;</span><br><span class="line">R[a[i]+give+i]++;</span><br><span class="line">a[i]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">a[i]=a[i]-(n-i)+give;</span><br><span class="line">&#125;</span><br><span class="line">give++;</span><br><span class="line">give-=R[i];</span><br><span class="line">cout&lt;&lt;a[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/AtCoder/">AtCoder</category>
+      
+      
+      <category domain="https://xyx404.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</category>
+      
+      
+      <comments>https://xyx404.github.io/post/20250112100700.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>题解：ABC387 D - Snaky Walk</title>
+      <link>https://xyx404.github.io/post/20250105200000.html</link>
+      <guid>https://xyx404.github.io/post/20250105200000.html</guid>
+      <pubDate>Sun, 05 Jan 2025 12:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.51/ABC387D.jpg&quot; alt=&quot;封面&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/articl</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.51/ABC387D.jpg" alt="封面" /></p><p><a href="https://www.luogu.com.cn/article/cmhok7ha">洛谷文章链接</a></p><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路：</h2><p>BFS。</p><p>如没学过，可以先看看 <a href="https://oi-wiki.org/graph/bfs/">OI Wiki</a>，然后把模版题 <a href="https://www.luogu.com.cn/problem/P1443">P1443 马的遍历</a>做了。</p><p>考虑到题目要求，上一次横着走，那下一次就必须竖着走；上一次竖着走，那下一次就必须横着走，所以 BFS 的队列里的变量要多一个变量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">cx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">x</span></span></span></span> 表示上一次走的方向，同时考虑到可能横着走到达这个点不可以到达终点，但是竖着走到达这个点可能可以到达终点，所以标记数组也要多一维，表示方向，当现在到达的点为终点时，说明可以到达输出答案。</p><p>其余的就是 BFS 的模版了。</p><h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码：</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="type">int</span> h,w;</span><br><span class="line"><span class="type">int</span> sx,sy,ex,ey;</span><br><span class="line"><span class="type">bool</span> bj[<span class="number">1200</span>][<span class="number">1200</span>][<span class="number">4</span>];</span><br><span class="line"><span class="type">char</span> jz[<span class="number">1200</span>][<span class="number">1200</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line"><span class="type">int</span> x,y;</span><br><span class="line"><span class="type">int</span> cx;<span class="comment">// 上一次的上下/左右/起点 </span></span><br><span class="line"><span class="type">int</span> step;</span><br><span class="line">&#125;;</span><br><span class="line">queue&lt;node&gt;dl;</span><br><span class="line"><span class="type">int</span> dx[]=&#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> dy[]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;; </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">cin&gt;&gt;h&gt;&gt;w;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=h;i++)<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=w;j++)&#123;</span><br><span class="line">cin&gt;&gt;jz[i][j];</span><br><span class="line"><span class="keyword">if</span>(jz[i][j]==<span class="string">&#x27;S&#x27;</span>)sx=i,sy=j;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(jz[i][j]==<span class="string">&#x27;G&#x27;</span>)ex=i,ey=j;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(jz[i][j]==<span class="string">&#x27;#&#x27;</span>)bj[i][j][<span class="number">1</span>]=<span class="number">1</span>,bj[i][j][<span class="number">2</span>]=<span class="number">1</span>,bj[i][j][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">dl.<span class="built_in">push</span>(&#123;sx,sy,<span class="number">0</span>,<span class="number">0</span>&#125;);</span><br><span class="line"><span class="keyword">while</span>(dl.<span class="built_in">empty</span>()==<span class="number">0</span>)&#123;</span><br><span class="line">node tamp=dl.<span class="built_in">front</span>();dl.<span class="built_in">pop</span>();</span><br><span class="line"><span class="comment">//cout&lt;&lt;tamp.x&lt;&lt;&quot; &quot;&lt;&lt;tamp.y&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line"><span class="keyword">if</span>(tamp.x==ex&amp;&amp;tamp.y==ey)&#123;</span><br><span class="line">cout&lt;&lt;tamp.step;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(bj[tamp.x][tamp.y][tamp.cx])<span class="keyword">continue</span>;</span><br><span class="line">bj[tamp.x][tamp.y][tamp.cx]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line"><span class="type">int</span> tx=tamp.x+dx[i],ty=tamp.y+dy[i];</span><br><span class="line"><span class="keyword">if</span>(tx&lt;<span class="number">1</span>||ty&lt;<span class="number">1</span>||tx&gt;h||ty&gt;w)<span class="keyword">continue</span>;</span><br><span class="line"><span class="keyword">if</span>(i&lt;=<span class="number">1</span>&amp;&amp;tamp.cx!=<span class="number">1</span>)&#123;</span><br><span class="line">dl.<span class="built_in">push</span>(&#123;tx,ty,<span class="number">1</span>,tamp.step<span class="number">+1</span>&#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i&gt;<span class="number">1</span>&amp;&amp;tamp.cx!=<span class="number">2</span>)&#123;</span><br><span class="line">dl.<span class="built_in">push</span>(&#123;tx,ty,<span class="number">2</span>,tamp.step<span class="number">+1</span>&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125; </span><br><span class="line">cout&lt;&lt;<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><p><a href="https://atcoder.jp/contests/abc387/submissions/61400036">AC 记录</a>。</p>]]></content:encoded>
+      
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/AtCoder/">AtCoder</category>
+      
+      
+      <category domain="https://xyx404.github.io/tags/bfs/">bfs</category>
+      
+      
+      <comments>https://xyx404.github.io/post/20250105200000.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>题解：P2678 [NOIP2015 提高组] 跳石头</title>
-      <link>https://xyx404.github.io/2024/12/31/P2678/</link>
-      <guid>https://xyx404.github.io/2024/12/31/P2678/</guid>
+      <link>https://xyx404.github.io/post/20241231175000.html</link>
+      <guid>https://xyx404.github.io/post/20241231175000.html</guid>
       <pubDate>Tue, 31 Dec 2024 09:50:00 GMT</pubDate>
       
         
@@ -37,14 +126,14 @@
       <category domain="https://xyx404.github.io/tags/%E4%BA%8C%E5%88%86/">二分</category>
       
       
-      <comments>https://xyx404.github.io/2024/12/31/P2678/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241231175000.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：AT_abc386_f [ABC386F] Operate K</title>
-      <link>https://xyx404.github.io/2024/12/30/F%20-%20Operate%20K/</link>
-      <guid>https://xyx404.github.io/2024/12/30/F%20-%20Operate%20K/</guid>
+      <link>https://xyx404.github.io/post/20241230210700.html</link>
+      <guid>https://xyx404.github.io/post/20241230210700.html</guid>
       <pubDate>Mon, 30 Dec 2024 13:07:00 GMT</pubDate>
       
         
@@ -66,14 +155,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</category>
       
       
-      <comments>https://xyx404.github.io/2024/12/30/F%20-%20Operate%20K/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241230210700.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P5681 [CSP-J2019 江西] 面积</title>
-      <link>https://xyx404.github.io/2024/12/23/P5681/</link>
-      <guid>https://xyx404.github.io/2024/12/23/P5681/</guid>
+      <link>https://xyx404.github.io/post/20241223192400.html</link>
+      <guid>https://xyx404.github.io/post/20241223192400.html</guid>
       <pubDate>Mon, 23 Dec 2024 11:24:00 GMT</pubDate>
       
         
@@ -95,14 +184,14 @@
       <category domain="https://xyx404.github.io/tags/%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/">顺序结构</category>
       
       
-      <comments>https://xyx404.github.io/2024/12/23/P5681/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241223192400.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P5690 [CSP-S2019 江西] 日期</title>
-      <link>https://xyx404.github.io/2024/12/23/P5690/</link>
-      <guid>https://xyx404.github.io/2024/12/23/P5690/</guid>
+      <link>https://xyx404.github.io/post/20241223191500.html</link>
+      <guid>https://xyx404.github.io/post/20241223191500.html</guid>
       <pubDate>Mon, 23 Dec 2024 11:15:00 GMT</pubDate>
       
         
@@ -124,14 +213,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%88%86%E7%B1%BB%E8%AE%A8%E8%AE%BA/">分类讨论</category>
       
       
-      <comments>https://xyx404.github.io/2024/12/23/P5690/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241223191500.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>实现文章统计图</title>
-      <link>https://xyx404.github.io/2024/12/19/%E6%96%87%E7%AB%A0%E7%BB%9F%E8%AE%A1/</link>
-      <guid>https://xyx404.github.io/2024/12/19/%E6%96%87%E7%AB%A0%E7%BB%9F%E8%AE%A1/</guid>
+      <link>https://xyx404.github.io/post/20241219202700.html</link>
+      <guid>https://xyx404.github.io/post/20241219202700.html</guid>
       <pubDate>Thu, 19 Dec 2024 12:27:00 GMT</pubDate>
       
         
@@ -151,14 +240,14 @@
       <category domain="https://xyx404.github.io/tags/hexo/">hexo</category>
       
       
-      <comments>https://xyx404.github.io/2024/12/19/%E6%96%87%E7%AB%A0%E7%BB%9F%E8%AE%A1/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241219202700.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>ABC384 E - Takahashi is Slime 2</title>
-      <link>https://xyx404.github.io/2024/12/14/ABC384%20E%20-%20Takahashi%20is%20Slime%202/</link>
-      <guid>https://xyx404.github.io/2024/12/14/ABC384%20E%20-%20Takahashi%20is%20Slime%202/</guid>
+      <link>https://xyx404.github.io/post/20241214221300.html</link>
+      <guid>https://xyx404.github.io/post/20241214221300.html</guid>
       <pubDate>Sat, 14 Dec 2024 14:13:00 GMT</pubDate>
       
         
@@ -182,14 +271,14 @@
       <category domain="https://xyx404.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">优先队列</category>
       
       
-      <comments>https://xyx404.github.io/2024/12/14/ABC384%20E%20-%20Takahashi%20is%20Slime%202/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241214221300.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：UVA628 Passwords</title>
-      <link>https://xyx404.github.io/2024/12/14/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA628%20Passwords/</link>
-      <guid>https://xyx404.github.io/2024/12/14/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA628%20Passwords/</guid>
+      <link>https://xyx404.github.io/post/20241214114300.html</link>
+      <guid>https://xyx404.github.io/post/20241214114300.html</guid>
       <pubDate>Sat, 14 Dec 2024 03:43:00 GMT</pubDate>
       
         
@@ -211,14 +300,14 @@
       <category domain="https://xyx404.github.io/tags/dfs/">dfs</category>
       
       
-      <comments>https://xyx404.github.io/2024/12/14/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA628%20Passwords/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241214114300.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：AT_abc383_c [ABC383C] Humidifier 3</title>
-      <link>https://xyx404.github.io/2024/12/08/%E9%A2%98%E8%A7%A3%EF%BC%9AAT_abc383_c%20[ABC383C]%20Humidifier%203/</link>
-      <guid>https://xyx404.github.io/2024/12/08/%E9%A2%98%E8%A7%A3%EF%BC%9AAT_abc383_c%20[ABC383C]%20Humidifier%203/</guid>
+      <link>https://xyx404.github.io/post/20241208095700.html</link>
+      <guid>https://xyx404.github.io/post/20241208095700.html</guid>
       <pubDate>Sun, 08 Dec 2024 01:57:00 GMT</pubDate>
       
         
@@ -240,14 +329,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%95%B0%E8%AE%BA/">数论</category>
       
       
-      <comments>https://xyx404.github.io/2024/12/08/%E9%A2%98%E8%A7%A3%EF%BC%9AAT_abc383_c%20[ABC383C]%20Humidifier%203/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241208095700.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解 9 Divisors</title>
-      <link>https://xyx404.github.io/2024/12/07/%E9%A2%98%E8%A7%A3%209%20Divisors/</link>
-      <guid>https://xyx404.github.io/2024/12/07/%E9%A2%98%E8%A7%A3%209%20Divisors/</guid>
+      <link>https://xyx404.github.io/post/20241207220700.html</link>
+      <guid>https://xyx404.github.io/post/20241207220700.html</guid>
       <pubDate>Sat, 07 Dec 2024 14:07:00 GMT</pubDate>
       
         
@@ -269,14 +358,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%A4%9A%E6%BA%90-bfs/">多源 bfs</category>
       
       
-      <comments>https://xyx404.github.io/2024/12/07/%E9%A2%98%E8%A7%A3%209%20Divisors/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241207220700.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：CF1468C Berpizza</title>
-      <link>https://xyx404.github.io/2024/12/06/%E9%A2%98%E8%A7%A3%EF%BC%9ACF1468C%20Berpizza/</link>
-      <guid>https://xyx404.github.io/2024/12/06/%E9%A2%98%E8%A7%A3%EF%BC%9ACF1468C%20Berpizza/</guid>
+      <link>https://xyx404.github.io/post/20241206202800.html</link>
+      <guid>https://xyx404.github.io/post/20241206202800.html</guid>
       <pubDate>Fri, 06 Dec 2024 12:28:00 GMT</pubDate>
       
         
@@ -298,14 +387,14 @@
       <category domain="https://xyx404.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">优先队列</category>
       
       
-      <comments>https://xyx404.github.io/2024/12/06/%E9%A2%98%E8%A7%A3%EF%BC%9ACF1468C%20Berpizza/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241206202800.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解 Keep Distance</title>
-      <link>https://xyx404.github.io/2024/11/30/%E9%A2%98%E8%A7%A3%20Keep%20Distance/</link>
-      <guid>https://xyx404.github.io/2024/11/30/%E9%A2%98%E8%A7%A3%20Keep%20Distance/</guid>
+      <link>https://xyx404.github.io/post/20241130215400.html</link>
+      <guid>https://xyx404.github.io/post/20241130215400.html</guid>
       <pubDate>Sat, 30 Nov 2024 13:54:00 GMT</pubDate>
       
         
@@ -325,14 +414,14 @@
       <category domain="https://xyx404.github.io/tags/dfs/">dfs</category>
       
       
-      <comments>https://xyx404.github.io/2024/11/30/%E9%A2%98%E8%A7%A3%20Keep%20Distance/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241130215400.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>friend-circle-lite 朋友圈的实现</title>
-      <link>https://xyx404.github.io/2024/11/24/friend-circle-lite%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
-      <guid>https://xyx404.github.io/2024/11/24/friend-circle-lite%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+      <link>https://xyx404.github.io/post/20241124134000.html</link>
+      <guid>https://xyx404.github.io/post/20241124134000.html</guid>
       <pubDate>Sun, 24 Nov 2024 05:40:00 GMT</pubDate>
       
         
@@ -353,14 +442,14 @@
       <category domain="https://xyx404.github.io/tags/hexo/">hexo</category>
       
       
-      <comments>https://xyx404.github.io/2024/11/24/friend-circle-lite%E7%9A%84%E5%AE%9E%E7%8E%B0/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241124134000.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：UVA10056 What is the Probability ?</title>
-      <link>https://xyx404.github.io/2024/11/18/UVA10056/</link>
-      <guid>https://xyx404.github.io/2024/11/18/UVA10056/</guid>
+      <link>https://xyx404.github.io/post/20241118202800.html</link>
+      <guid>https://xyx404.github.io/post/20241118202800.html</guid>
       <pubDate>Mon, 18 Nov 2024 12:28:00 GMT</pubDate>
       
         
@@ -382,14 +471,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
       
       
-      <comments>https://xyx404.github.io/2024/11/18/UVA10056/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241118202800.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：UVA10761 Broken Keyboard</title>
-      <link>https://xyx404.github.io/2024/11/16/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10761%20Broken%20Keyboard/</link>
-      <guid>https://xyx404.github.io/2024/11/16/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10761%20Broken%20Keyboard/</guid>
+      <link>https://xyx404.github.io/post/20241116084100.html</link>
+      <guid>https://xyx404.github.io/post/20241116084100.html</guid>
       <pubDate>Sat, 16 Nov 2024 00:41:00 GMT</pubDate>
       
         
@@ -411,14 +500,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</category>
       
       
-      <comments>https://xyx404.github.io/2024/11/16/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10761%20Broken%20Keyboard/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241116084100.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P11276 第一首歌</title>
-      <link>https://xyx404.github.io/2024/11/14/%E9%A2%98%E8%A7%A3%EF%BC%9AP11276%20%E7%AC%AC%E4%B8%80%E9%A6%96%E6%AD%8C/</link>
-      <guid>https://xyx404.github.io/2024/11/14/%E9%A2%98%E8%A7%A3%EF%BC%9AP11276%20%E7%AC%AC%E4%B8%80%E9%A6%96%E6%AD%8C/</guid>
+      <link>https://xyx404.github.io/post/20241114215900.html</link>
+      <guid>https://xyx404.github.io/post/20241114215900.html</guid>
       <pubDate>Thu, 14 Nov 2024 13:59:00 GMT</pubDate>
       
         
@@ -438,14 +527,14 @@
       <category domain="https://xyx404.github.io/tags/KMP-%E7%AE%97%E6%B3%95/">KMP 算法</category>
       
       
-      <comments>https://xyx404.github.io/2024/11/14/%E9%A2%98%E8%A7%A3%EF%BC%9AP11276%20%E7%AC%AC%E4%B8%80%E9%A6%96%E6%AD%8C/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241114215900.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P11275 微观戏剧</title>
-      <link>https://xyx404.github.io/2024/11/14/%E9%A2%98%E8%A7%A3%EF%BC%9AP11275%20%E5%BE%AE%E8%A7%82%E6%88%8F%E5%89%A7/</link>
-      <guid>https://xyx404.github.io/2024/11/14/%E9%A2%98%E8%A7%A3%EF%BC%9AP11275%20%E5%BE%AE%E8%A7%82%E6%88%8F%E5%89%A7/</guid>
+      <link>https://xyx404.github.io/post/20241114213300.html</link>
+      <guid>https://xyx404.github.io/post/20241114213300.html</guid>
       <pubDate>Thu, 14 Nov 2024 13:33:00 GMT</pubDate>
       
         
@@ -465,14 +554,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
       
       
-      <comments>https://xyx404.github.io/2024/11/14/%E9%A2%98%E8%A7%A3%EF%BC%9AP11275%20%E5%BE%AE%E8%A7%82%E6%88%8F%E5%89%A7/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241114213300.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>CSP2024 反思</title>
-      <link>https://xyx404.github.io/2024/11/04/csp2024%E5%8F%8D%E6%80%9D/</link>
-      <guid>https://xyx404.github.io/2024/11/04/csp2024%E5%8F%8D%E6%80%9D/</guid>
+      <link>https://xyx404.github.io/post/20241104193500.html</link>
+      <guid>https://xyx404.github.io/post/20241104193500.html</guid>
       <pubDate>Mon, 04 Nov 2024 11:35:00 GMT</pubDate>
       
         
@@ -492,14 +581,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%8F%8D%E6%80%9D/">反思</category>
       
       
-      <comments>https://xyx404.github.io/2024/11/04/csp2024%E5%8F%8D%E6%80%9D/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241104193500.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：UVA10081 Tight Words</title>
-      <link>https://xyx404.github.io/2024/11/03/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10081%20Tight%20Words/</link>
-      <guid>https://xyx404.github.io/2024/11/03/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10081%20Tight%20Words/</guid>
+      <link>https://xyx404.github.io/post/20241103183300.html</link>
+      <guid>https://xyx404.github.io/post/20241103183300.html</guid>
       <pubDate>Sun, 03 Nov 2024 10:33:00 GMT</pubDate>
       
         
@@ -521,14 +610,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</category>
       
       
-      <comments>https://xyx404.github.io/2024/11/03/%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10081%20Tight%20Words/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241103183300.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>uptimerobot+vercel 友链监控</title>
-      <link>https://xyx404.github.io/2024/10/19/uptimerobot%E5%AE%9E%E7%8E%B0%E5%8F%8B%E9%93%BE%E7%9B%91%E6%8E%A7/</link>
-      <guid>https://xyx404.github.io/2024/10/19/uptimerobot%E5%AE%9E%E7%8E%B0%E5%8F%8B%E9%93%BE%E7%9B%91%E6%8E%A7/</guid>
+      <link>https://xyx404.github.io/post/20241019095500.html</link>
+      <guid>https://xyx404.github.io/post/20241019095500.html</guid>
       <pubDate>Sat, 19 Oct 2024 01:55:00 GMT</pubDate>
       
         
@@ -548,14 +637,14 @@
       <category domain="https://xyx404.github.io/tags/hexo/">hexo</category>
       
       
-      <comments>https://xyx404.github.io/2024/10/19/uptimerobot%E5%AE%9E%E7%8E%B0%E5%8F%8B%E9%93%BE%E7%9B%91%E6%8E%A7/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241019095500.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：CF2010B Three Brothers</title>
-      <link>https://xyx404.github.io/2024/10/07/CF2010B%20Three%20Brothers/</link>
-      <guid>https://xyx404.github.io/2024/10/07/CF2010B%20Three%20Brothers/</guid>
+      <link>https://xyx404.github.io/post/20241007193000.html</link>
+      <guid>https://xyx404.github.io/post/20241007193000.html</guid>
       <pubDate>Mon, 07 Oct 2024 11:30:00 GMT</pubDate>
       
         
@@ -577,14 +666,14 @@
       <category domain="https://xyx404.github.io/tags/%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/">顺序结构</category>
       
       
-      <comments>https://xyx404.github.io/2024/10/07/CF2010B%20Three%20Brothers/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241007193000.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2024.10.6 日记</title>
-      <link>https://xyx404.github.io/2024/10/06/20241006%E8%AE%B0%E5%BD%95/</link>
-      <guid>https://xyx404.github.io/2024/10/06/20241006%E8%AE%B0%E5%BD%95/</guid>
+      <link>https://xyx404.github.io/post/20241006211100.html</link>
+      <guid>https://xyx404.github.io/post/20241006211100.html</guid>
       <pubDate>Sun, 06 Oct 2024 13:11:00 GMT</pubDate>
       
         
@@ -605,14 +694,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</category>
       
       
-      <comments>https://xyx404.github.io/2024/10/06/20241006%E8%AE%B0%E5%BD%95/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241006211100.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P11156 【MX-X6-T2】もしも</title>
-      <link>https://xyx404.github.io/2024/10/03/%E9%A2%98%E8%A7%A3%EF%BC%9AP11156%20%E3%80%90MX-X6-T2%E3%80%91%E3%82%82%E3%81%97%E3%82%82/</link>
-      <guid>https://xyx404.github.io/2024/10/03/%E9%A2%98%E8%A7%A3%EF%BC%9AP11156%20%E3%80%90MX-X6-T2%E3%80%91%E3%82%82%E3%81%97%E3%82%82/</guid>
+      <link>https://xyx404.github.io/post/20241003161100.html</link>
+      <guid>https://xyx404.github.io/post/20241003161100.html</guid>
       <pubDate>Thu, 03 Oct 2024 08:11:00 GMT</pubDate>
       
         
@@ -632,14 +721,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
       
       
-      <comments>https://xyx404.github.io/2024/10/03/%E9%A2%98%E8%A7%A3%EF%BC%9AP11156%20%E3%80%90MX-X6-T2%E3%80%91%E3%82%82%E3%81%97%E3%82%82/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241003161100.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>anzhiyu 主题修改头像和新品主题</title>
-      <link>https://xyx404.github.io/2024/10/01/azy%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E5%A4%B4%E5%83%8F%E5%92%8C%E6%96%B0%E5%93%81%E4%B8%BB%E9%A2%98/</link>
-      <guid>https://xyx404.github.io/2024/10/01/azy%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E5%A4%B4%E5%83%8F%E5%92%8C%E6%96%B0%E5%93%81%E4%B8%BB%E9%A2%98/</guid>
+      <link>https://xyx404.github.io/post/20241001192000.html</link>
+      <guid>https://xyx404.github.io/post/20241001192000.html</guid>
       <pubDate>Tue, 01 Oct 2024 11:20:00 GMT</pubDate>
       
         
@@ -659,14 +748,14 @@
       <category domain="https://xyx404.github.io/tags/hexo/">hexo</category>
       
       
-      <comments>https://xyx404.github.io/2024/10/01/azy%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E5%A4%B4%E5%83%8F%E5%92%8C%E6%96%B0%E5%93%81%E4%B8%BB%E9%A2%98/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20241001192000.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>anzhiyu随便逛逛people模式与作者卡片显示名字</title>
-      <link>https://xyx404.github.io/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(2)/</link>
-      <guid>https://xyx404.github.io/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(2)/</guid>
+      <link>https://xyx404.github.io/post/20240924200100.html</link>
+      <guid>https://xyx404.github.io/post/20240924200100.html</guid>
       <pubDate>Tue, 24 Sep 2024 12:01:00 GMT</pubDate>
       
         
@@ -686,14 +775,14 @@
       <category domain="https://xyx404.github.io/tags/hexo/">hexo</category>
       
       
-      <comments>https://xyx404.github.io/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(2)/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240924200100.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>搭建主题为 anzhiyu 的 hexo 博客</title>
-      <link>https://xyx404.github.io/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(1)/</link>
-      <guid>https://xyx404.github.io/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(1)/</guid>
+      <link>https://xyx404.github.io/post/20240924194100.html</link>
+      <guid>https://xyx404.github.io/post/20240924194100.html</guid>
       <pubDate>Tue, 24 Sep 2024 11:41:00 GMT</pubDate>
       
         
@@ -713,14 +802,14 @@
       <category domain="https://xyx404.github.io/tags/hexo/">hexo</category>
       
       
-      <comments>https://xyx404.github.io/2024/09/24/%E6%90%AD%E5%BB%BA%20hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%20anzhiyu(1)/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240924194100.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：AT_nikkei2019_final_d Deforestation</title>
-      <link>https://xyx404.github.io/2024/09/16/AT_nikkei2019_final_d/</link>
-      <guid>https://xyx404.github.io/2024/09/16/AT_nikkei2019_final_d/</guid>
+      <link>https://xyx404.github.io/post/20240916193700.html</link>
+      <guid>https://xyx404.github.io/post/20240916193700.html</guid>
       <pubDate>Mon, 16 Sep 2024 11:37:00 GMT</pubDate>
       
         
@@ -742,14 +831,14 @@
       <category domain="https://xyx404.github.io/tags/%E4%BA%8C%E5%88%86/">二分</category>
       
       
-      <comments>https://xyx404.github.io/2024/09/16/AT_nikkei2019_final_d/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240916193700.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：AT_past202203_f 地図の塗り分け</title>
-      <link>https://xyx404.github.io/2024/09/15/AT_past202203_f/</link>
-      <guid>https://xyx404.github.io/2024/09/15/AT_past202203_f/</guid>
+      <link>https://xyx404.github.io/post/20240915210300.html</link>
+      <guid>https://xyx404.github.io/post/20240915210300.html</guid>
       <pubDate>Sun, 15 Sep 2024 13:03:00 GMT</pubDate>
       
         
@@ -773,14 +862,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%9A%B4%E5%8A%9B/">暴力</category>
       
       
-      <comments>https://xyx404.github.io/2024/09/15/AT_past202203_f/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240915210300.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：AT_past202203_e 良い日付</title>
-      <link>https://xyx404.github.io/2024/09/15/AT_past202203_e/</link>
-      <guid>https://xyx404.github.io/2024/09/15/AT_past202203_e/</guid>
+      <link>https://xyx404.github.io/post/20240915200900.html</link>
+      <guid>https://xyx404.github.io/post/20240915200900.html</guid>
       <pubDate>Sun, 15 Sep 2024 12:09:00 GMT</pubDate>
       
         
@@ -804,14 +893,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%93%88%E5%B8%8C/">哈希</category>
       
       
-      <comments>https://xyx404.github.io/2024/09/15/AT_past202203_e/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240915200900.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10905 [蓝桥杯 2024 省 C] 回文字符串</title>
-      <link>https://xyx404.github.io/2024/08/24/%E9%A2%98%E8%A7%A3%EF%BC%9AP10905%20[%E8%93%9D%E6%A1%A5%E6%9D%AF%202024%20%E7%9C%81%20C]%20%E5%9B%9E%E6%96%87%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-      <guid>https://xyx404.github.io/2024/08/24/%E9%A2%98%E8%A7%A3%EF%BC%9AP10905%20[%E8%93%9D%E6%A1%A5%E6%9D%AF%202024%20%E7%9C%81%20C]%20%E5%9B%9E%E6%96%87%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <link>https://xyx404.github.io/post/20240824103500.html</link>
+      <guid>https://xyx404.github.io/post/20240824103500.html</guid>
       <pubDate>Sat, 24 Aug 2024 02:35:00 GMT</pubDate>
       
         
@@ -833,14 +922,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</category>
       
       
-      <comments>https://xyx404.github.io/2024/08/24/%E9%A2%98%E8%A7%A3%EF%BC%9AP10905%20[%E8%93%9D%E6%A1%A5%E6%9D%AF%202024%20%E7%9C%81%20C]%20%E5%9B%9E%E6%96%87%E5%AD%97%E7%AC%A6%E4%B8%B2/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240824103500.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10904 [蓝桥杯 2024 省 C] 挖矿</title>
-      <link>https://xyx404.github.io/2024/08/24/%E9%A2%98%E8%A7%A3%EF%BC%9AP10904%20[%E8%93%9D%E6%A1%A5%E6%9D%AF%202024%20%E7%9C%81%20C]%20%E6%8C%96%E7%9F%BF/</link>
-      <guid>https://xyx404.github.io/2024/08/24/%E9%A2%98%E8%A7%A3%EF%BC%9AP10904%20[%E8%93%9D%E6%A1%A5%E6%9D%AF%202024%20%E7%9C%81%20C]%20%E6%8C%96%E7%9F%BF/</guid>
+      <link>https://xyx404.github.io/post/20240824100500.html</link>
+      <guid>https://xyx404.github.io/post/20240824100500.html</guid>
       <pubDate>Sat, 24 Aug 2024 02:05:00 GMT</pubDate>
       
         
@@ -862,14 +951,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%8E%92%E5%BA%8F/">排序</category>
       
       
-      <comments>https://xyx404.github.io/2024/08/24/%E9%A2%98%E8%A7%A3%EF%BC%9AP10904%20[%E8%93%9D%E6%A1%A5%E6%9D%AF%202024%20%E7%9C%81%20C]%20%E6%8C%96%E7%9F%BF/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240824100500.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10885 【MX-S3-T1】「FeOI Round 1」野心</title>
-      <link>https://xyx404.github.io/2024/08/18/%E9%A2%98%E8%A7%A3%EF%BC%9AP10885%20%E3%80%90MX-S3-T1%E3%80%91%E3%80%8CFeOI%20Round%201%E3%80%8D%E9%87%8E%E5%BF%83/</link>
-      <guid>https://xyx404.github.io/2024/08/18/%E9%A2%98%E8%A7%A3%EF%BC%9AP10885%20%E3%80%90MX-S3-T1%E3%80%91%E3%80%8CFeOI%20Round%201%E3%80%8D%E9%87%8E%E5%BF%83/</guid>
+      <link>https://xyx404.github.io/post/20240818132100.html</link>
+      <guid>https://xyx404.github.io/post/20240818132100.html</guid>
       <pubDate>Sun, 18 Aug 2024 05:21:00 GMT</pubDate>
       
         
@@ -886,21 +975,21 @@
       <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
       
       
-      <category domain="https://xyx404.github.io/tags/%E5%88%86%E7%B1%BB%E8%AE%A8%E8%AE%BA/">分类讨论</category>
-      
       <category domain="https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
+      
+      <category domain="https://xyx404.github.io/tags/%E5%88%86%E7%B1%BB%E8%AE%A8%E8%AE%BA/">分类讨论</category>
       
       <category domain="https://xyx404.github.io/tags/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/">等差数列</category>
       
       
-      <comments>https://xyx404.github.io/2024/08/18/%E9%A2%98%E8%A7%A3%EF%BC%9AP10885%20%E3%80%90MX-S3-T1%E3%80%91%E3%80%8CFeOI%20Round%201%E3%80%8D%E9%87%8E%E5%BF%83/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240818132100.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>c++ STL (3)</title>
-      <link>https://xyx404.github.io/2024/08/17/c++%20STL%203/</link>
-      <guid>https://xyx404.github.io/2024/08/17/c++%20STL%203/</guid>
+      <link>https://xyx404.github.io/post/20240817093700.html</link>
+      <guid>https://xyx404.github.io/post/20240817093700.html</guid>
       <pubDate>Sat, 17 Aug 2024 01:37:00 GMT</pubDate>
       
         
@@ -924,14 +1013,14 @@
       <category domain="https://xyx404.github.io/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
       
       
-      <comments>https://xyx404.github.io/2024/08/17/c++%20STL%203/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240817093700.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>c++ STL (2)</title>
-      <link>https://xyx404.github.io/2024/08/17/c++%20STL%202/</link>
-      <guid>https://xyx404.github.io/2024/08/17/c++%20STL%202/</guid>
+      <link>https://xyx404.github.io/post/20240817091300.html</link>
+      <guid>https://xyx404.github.io/post/20240817091300.html</guid>
       <pubDate>Sat, 17 Aug 2024 01:13:00 GMT</pubDate>
       
         
@@ -955,14 +1044,14 @@
       <category domain="https://xyx404.github.io/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
       
       
-      <comments>https://xyx404.github.io/2024/08/17/c++%20STL%202/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240817091300.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>c++ STL (1)</title>
-      <link>https://xyx404.github.io/2024/08/16/c++%20STL%201/</link>
-      <guid>https://xyx404.github.io/2024/08/16/c++%20STL%201/</guid>
+      <link>https://xyx404.github.io/post/20240816173000.html</link>
+      <guid>https://xyx404.github.io/post/20240816173000.html</guid>
       <pubDate>Fri, 16 Aug 2024 09:30:00 GMT</pubDate>
       
         
@@ -986,14 +1075,14 @@
       <category domain="https://xyx404.github.io/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
       
       
-      <comments>https://xyx404.github.io/2024/08/16/c++%20STL%201/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240816173000.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：CF45C Dancing Lessons</title>
-      <link>https://xyx404.github.io/2024/08/04/%E9%A2%98%E8%A7%A3%EF%BC%9ACF45C%20Dancing%20Lessons/</link>
-      <guid>https://xyx404.github.io/2024/08/04/%E9%A2%98%E8%A7%A3%EF%BC%9ACF45C%20Dancing%20Lessons/</guid>
+      <link>https://xyx404.github.io/post/20240804203000.html</link>
+      <guid>https://xyx404.github.io/post/20240804203000.html</guid>
       <pubDate>Sun, 04 Aug 2024 12:30:00 GMT</pubDate>
       
         
@@ -1019,14 +1108,14 @@
       <category domain="https://xyx404.github.io/tags/%E9%93%BE%E8%A1%A8/">链表</category>
       
       
-      <comments>https://xyx404.github.io/2024/08/04/%E9%A2%98%E8%A7%A3%EF%BC%9ACF45C%20Dancing%20Lessons/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240804203000.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：CF75B Facetook Priority Wall</title>
-      <link>https://xyx404.github.io/2024/08/04/%E9%A2%98%E8%A7%A3%EF%BC%9ACF75B%20Facetook%20Priority%20Wall/</link>
-      <guid>https://xyx404.github.io/2024/08/04/%E9%A2%98%E8%A7%A3%EF%BC%9ACF75B%20Facetook%20Priority%20Wall/</guid>
+      <link>https://xyx404.github.io/post/20240804192000.html</link>
+      <guid>https://xyx404.github.io/post/20240804192000.html</guid>
       <pubDate>Sun, 04 Aug 2024 11:20:00 GMT</pubDate>
       
         
@@ -1050,14 +1139,14 @@
       <category domain="https://xyx404.github.io/tags/%E7%BB%93%E6%9E%84%E4%BD%93%E6%8E%92%E5%BA%8F/">结构体排序</category>
       
       
-      <comments>https://xyx404.github.io/2024/08/04/%E9%A2%98%E8%A7%A3%EF%BC%9ACF75B%20Facetook%20Priority%20Wall/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240804192000.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P2318 [HNOI2005] 虚拟内存</title>
-      <link>https://xyx404.github.io/2024/08/02/%E9%A2%98%E8%A7%A3%EF%BC%9AP2318%20[HNOI2005]%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/</link>
-      <guid>https://xyx404.github.io/2024/08/02/%E9%A2%98%E8%A7%A3%EF%BC%9AP2318%20[HNOI2005]%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/</guid>
+      <link>https://xyx404.github.io/post/20240802163700.html</link>
+      <guid>https://xyx404.github.io/post/20240802163700.html</guid>
       <pubDate>Fri, 02 Aug 2024 08:37:00 GMT</pubDate>
       
         
@@ -1077,14 +1166,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%93%88%E5%B8%8C/">哈希</category>
       
       
-      <comments>https://xyx404.github.io/2024/08/02/%E9%A2%98%E8%A7%A3%EF%BC%9AP2318%20[HNOI2005]%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240802163700.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10677 『STA - R6』inkar-usi</title>
-      <link>https://xyx404.github.io/2024/07/01/%E9%A2%98%E8%A7%A3%EF%BC%9AP10677%20%E3%80%8ESTA%20-%20R6%E3%80%8Finkar-usi/</link>
-      <guid>https://xyx404.github.io/2024/07/01/%E9%A2%98%E8%A7%A3%EF%BC%9AP10677%20%E3%80%8ESTA%20-%20R6%E3%80%8Finkar-usi/</guid>
+      <link>https://xyx404.github.io/post/20240701112600.html</link>
+      <guid>https://xyx404.github.io/post/20240701112600.html</guid>
       <pubDate>Mon, 01 Jul 2024 03:26:00 GMT</pubDate>
       
         
@@ -1106,14 +1195,14 @@
       <category domain="https://xyx404.github.io/tags/%E8%B4%AA%E5%BF%83/">贪心</category>
       
       
-      <comments>https://xyx404.github.io/2024/07/01/%E9%A2%98%E8%A7%A3%EF%BC%9AP10677%20%E3%80%8ESTA%20-%20R6%E3%80%8Finkar-usi/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240701112600.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10520 [XJTUPC2024] 榕树之心</title>
-      <link>https://xyx404.github.io/2024/05/21/%E9%A2%98%E8%A7%A3%EF%BC%9AP10520%20[XJTUPC2024]%20%E6%A6%95%E6%A0%91%E4%B9%8B%E5%BF%83/</link>
-      <guid>https://xyx404.github.io/2024/05/21/%E9%A2%98%E8%A7%A3%EF%BC%9AP10520%20[XJTUPC2024]%20%E6%A6%95%E6%A0%91%E4%B9%8B%E5%BF%83/</guid>
+      <link>https://xyx404.github.io/post/20240521204600.html</link>
+      <guid>https://xyx404.github.io/post/20240521204600.html</guid>
       <pubDate>Tue, 21 May 2024 12:46:00 GMT</pubDate>
       
         
@@ -1133,14 +1222,14 @@
       <category domain="https://xyx404.github.io/tags/%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/">顺序结构</category>
       
       
-      <comments>https://xyx404.github.io/2024/05/21/%E9%A2%98%E8%A7%A3%EF%BC%9AP10520%20[XJTUPC2024]%20%E6%A6%95%E6%A0%91%E4%B9%8B%E5%BF%83/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240521204600.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10448 组合型枚举</title>
-      <link>https://xyx404.github.io/2024/05/15/%E9%A2%98%E8%A7%A3%EF%BC%9AP10448%20%E7%BB%84%E5%90%88%E5%9E%8B%E6%9E%9A%E4%B8%BE/</link>
-      <guid>https://xyx404.github.io/2024/05/15/%E9%A2%98%E8%A7%A3%EF%BC%9AP10448%20%E7%BB%84%E5%90%88%E5%9E%8B%E6%9E%9A%E4%B8%BE/</guid>
+      <link>https://xyx404.github.io/post/20240515192000.html</link>
+      <guid>https://xyx404.github.io/post/20240515192000.html</guid>
       <pubDate>Wed, 15 May 2024 11:20:00 GMT</pubDate>
       
         
@@ -1160,14 +1249,14 @@
       <category domain="https://xyx404.github.io/tags/dfs/">dfs</category>
       
       
-      <comments>https://xyx404.github.io/2024/05/15/%E9%A2%98%E8%A7%A3%EF%BC%9AP10448%20%E7%BB%84%E5%90%88%E5%9E%8B%E6%9E%9A%E4%B8%BE/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240515192000.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10401 「XSOI-R1」区间操作</title>
-      <link>https://xyx404.github.io/2024/05/03/%E9%A2%98%E8%A7%A3%EF%BC%9AP10401%20%E3%80%8CXSOI-R1%E3%80%8D%E5%8C%BA%E9%97%B4%E6%93%8D%E4%BD%9C/</link>
-      <guid>https://xyx404.github.io/2024/05/03/%E9%A2%98%E8%A7%A3%EF%BC%9AP10401%20%E3%80%8CXSOI-R1%E3%80%8D%E5%8C%BA%E9%97%B4%E6%93%8D%E4%BD%9C/</guid>
+      <link>https://xyx404.github.io/post/20240503134900.html</link>
+      <guid>https://xyx404.github.io/post/20240503134900.html</guid>
       <pubDate>Fri, 03 May 2024 05:49:00 GMT</pubDate>
       
         
@@ -1189,14 +1278,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</category>
       
       
-      <comments>https://xyx404.github.io/2024/05/03/%E9%A2%98%E8%A7%A3%EF%BC%9AP10401%20%E3%80%8CXSOI-R1%E3%80%8D%E5%8C%BA%E9%97%B4%E6%93%8D%E4%BD%9C/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240503134900.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：B3958 [GESP202403 四级] 相似字符串</title>
-      <link>https://xyx404.github.io/2024/04/28/%E9%A2%98%E8%A7%A3%EF%BC%9AB3958%20[GESP202403%20%E5%9B%9B%E7%BA%A7]%20%E7%9B%B8%E4%BC%BC%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-      <guid>https://xyx404.github.io/2024/04/28/%E9%A2%98%E8%A7%A3%EF%BC%9AB3958%20[GESP202403%20%E5%9B%9B%E7%BA%A7]%20%E7%9B%B8%E4%BC%BC%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <link>https://xyx404.github.io/post/20240428191300.html</link>
+      <guid>https://xyx404.github.io/post/20240428191300.html</guid>
       <pubDate>Sun, 28 Apr 2024 11:13:00 GMT</pubDate>
       
         
@@ -1220,14 +1309,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</category>
       
       
-      <comments>https://xyx404.github.io/2024/04/28/%E9%A2%98%E8%A7%A3%EF%BC%9AB3958%20[GESP202403%20%E5%9B%9B%E7%BA%A7]%20%E7%9B%B8%E4%BC%BC%E5%AD%97%E7%AC%A6%E4%B8%B2/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240428191300.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10376 [GESP202403 六级] 游戏</title>
-      <link>https://xyx404.github.io/2024/04/27/%E9%A2%98%E8%A7%A3%EF%BC%9AP10376%20[GESP202403%20%E5%85%AD%E7%BA%A7]%20%E6%B8%B8%E6%88%8F/</link>
-      <guid>https://xyx404.github.io/2024/04/27/%E9%A2%98%E8%A7%A3%EF%BC%9AP10376%20[GESP202403%20%E5%85%AD%E7%BA%A7]%20%E6%B8%B8%E6%88%8F/</guid>
+      <link>https://xyx404.github.io/post/20240427165900.html</link>
+      <guid>https://xyx404.github.io/post/20240427165900.html</guid>
       <pubDate>Sat, 27 Apr 2024 08:59:00 GMT</pubDate>
       
         
@@ -1251,14 +1340,14 @@
       <category domain="https://xyx404.github.io/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/">记忆化搜索</category>
       
       
-      <comments>https://xyx404.github.io/2024/04/27/%E9%A2%98%E8%A7%A3%EF%BC%9AP10376%20[GESP202403%20%E5%85%AD%E7%BA%A7]%20%E6%B8%B8%E6%88%8F/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240427165900.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10377 [GESP202403 六级] 好斗的牛</title>
-      <link>https://xyx404.github.io/2024/04/26/%E9%A2%98%E8%A7%A3%EF%BC%9AP10377%20[GESP202403%20%E5%85%AD%E7%BA%A7]%20%E5%A5%BD%E6%96%97%E7%9A%84%E7%89%9B/</link>
-      <guid>https://xyx404.github.io/2024/04/26/%E9%A2%98%E8%A7%A3%EF%BC%9AP10377%20[GESP202403%20%E5%85%AD%E7%BA%A7]%20%E5%A5%BD%E6%96%97%E7%9A%84%E7%89%9B/</guid>
+      <link>https://xyx404.github.io/post/20240426184400.html</link>
+      <guid>https://xyx404.github.io/post/20240426184400.html</guid>
       <pubDate>Fri, 26 Apr 2024 10:44:00 GMT</pubDate>
       
         
@@ -1280,14 +1369,14 @@
       <category domain="https://xyx404.github.io/tags/dfs/">dfs</category>
       
       
-      <comments>https://xyx404.github.io/2024/04/26/%E9%A2%98%E8%A7%A3%EF%BC%9AP10377%20[GESP202403%20%E5%85%AD%E7%BA%A7]%20%E5%A5%BD%E6%96%97%E7%9A%84%E7%89%9B/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240426184400.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：B3969 [GESP202403 五级] B-smooth 数</title>
-      <link>https://xyx404.github.io/2024/04/25/%E9%A2%98%E8%A7%A3%EF%BC%9AB3969%20[GESP202403%20%E4%BA%94%E7%BA%A7]%20B-smooth%20%E6%95%B0/</link>
-      <guid>https://xyx404.github.io/2024/04/25/%E9%A2%98%E8%A7%A3%EF%BC%9AB3969%20[GESP202403%20%E4%BA%94%E7%BA%A7]%20B-smooth%20%E6%95%B0/</guid>
+      <link>https://xyx404.github.io/post/20240425183900.html</link>
+      <guid>https://xyx404.github.io/post/20240425183900.html</guid>
       <pubDate>Thu, 25 Apr 2024 10:39:00 GMT</pubDate>
       
         
@@ -1309,14 +1398,14 @@
       <category domain="https://xyx404.github.io/tags/%E7%B4%A0%E6%95%B0%E5%88%A4%E6%96%AD-%E8%B4%A8%E6%95%B0-%E7%AD%9B%E6%B3%95/">素数判断,质数,筛法</category>
       
       
-      <comments>https://xyx404.github.io/2024/04/25/%E9%A2%98%E8%A7%A3%EF%BC%9AB3969%20[GESP202403%20%E4%BA%94%E7%BA%A7]%20B-smooth%20%E6%95%B0/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240425183900.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10355 [PA2024] Znaczki pocztowe</title>
-      <link>https://xyx404.github.io/2024/04/22/%E9%A2%98%E8%A7%A3%EF%BC%9AP10355%20[PA2024]%20Znaczki%20pocztowe/</link>
-      <guid>https://xyx404.github.io/2024/04/22/%E9%A2%98%E8%A7%A3%EF%BC%9AP10355%20[PA2024]%20Znaczki%20pocztowe/</guid>
+      <link>https://xyx404.github.io/post/20240422224600.html</link>
+      <guid>https://xyx404.github.io/post/20240422224600.html</guid>
       <pubDate>Mon, 22 Apr 2024 14:46:00 GMT</pubDate>
       
         
@@ -1338,14 +1427,14 @@
       <category domain="https://xyx404.github.io/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</category>
       
       
-      <comments>https://xyx404.github.io/2024/04/22/%E9%A2%98%E8%A7%A3%EF%BC%9AP10355%20[PA2024]%20Znaczki%20pocztowe/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240422224600.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：B3968 [GESP202403 五级] 成绩排序</title>
-      <link>https://xyx404.github.io/2024/04/22/%E9%A2%98%E8%A7%A3%EF%BC%9AB3968%20[GESP202403%20%E4%BA%94%E7%BA%A7]%20%E6%88%90%E7%BB%A9%E6%8E%92%E5%BA%8F/</link>
-      <guid>https://xyx404.github.io/2024/04/22/%E9%A2%98%E8%A7%A3%EF%BC%9AB3968%20[GESP202403%20%E4%BA%94%E7%BA%A7]%20%E6%88%90%E7%BB%A9%E6%8E%92%E5%BA%8F/</guid>
+      <link>https://xyx404.github.io/post/20240422192800.html</link>
+      <guid>https://xyx404.github.io/post/20240422192800.html</guid>
       <pubDate>Mon, 22 Apr 2024 11:28:00 GMT</pubDate>
       
         
@@ -1367,14 +1456,14 @@
       <category domain="https://xyx404.github.io/tags/%E7%BB%93%E6%9E%84%E4%BD%93%E6%8E%92%E5%BA%8F/">结构体排序</category>
       
       
-      <comments>https://xyx404.github.io/2024/04/22/%E9%A2%98%E8%A7%A3%EF%BC%9AB3968%20[GESP202403%20%E4%BA%94%E7%BA%A7]%20%E6%88%90%E7%BB%A9%E6%8E%92%E5%BA%8F/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240422192800.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10373 [AHOI2024 初中组] 立方根</title>
-      <link>https://xyx404.github.io/2024/04/21/%E9%A2%98%E8%A7%A3%EF%BC%9AP10373%20[AHOI2024%20%E5%88%9D%E4%B8%AD%E7%BB%84]%20%E7%AB%8B%E6%96%B9%E6%A0%B9/</link>
-      <guid>https://xyx404.github.io/2024/04/21/%E9%A2%98%E8%A7%A3%EF%BC%9AP10373%20[AHOI2024%20%E5%88%9D%E4%B8%AD%E7%BB%84]%20%E7%AB%8B%E6%96%B9%E6%A0%B9/</guid>
+      <link>https://xyx404.github.io/post/20240421210600.html</link>
+      <guid>https://xyx404.github.io/post/20240421210600.html</guid>
       <pubDate>Sun, 21 Apr 2024 13:06:00 GMT</pubDate>
       
         
@@ -1394,14 +1483,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
       
       
-      <comments>https://xyx404.github.io/2024/04/21/%E9%A2%98%E8%A7%A3%EF%BC%9AP10373%20[AHOI2024%20%E5%88%9D%E4%B8%AD%E7%BB%84]%20%E7%AB%8B%E6%96%B9%E6%A0%B9/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240421210600.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10372 [AHOI2024 初中组] 家庭作业</title>
-      <link>https://xyx404.github.io/2024/04/21/%E9%A2%98%E8%A7%A3%EF%BC%9AP10372%20[AHOI2024%20%E5%88%9D%E4%B8%AD%E7%BB%84]%20%E5%AE%B6%E5%BA%AD%E4%BD%9C%E4%B8%9A/</link>
-      <guid>https://xyx404.github.io/2024/04/21/%E9%A2%98%E8%A7%A3%EF%BC%9AP10372%20[AHOI2024%20%E5%88%9D%E4%B8%AD%E7%BB%84]%20%E5%AE%B6%E5%BA%AD%E4%BD%9C%E4%B8%9A/</guid>
+      <link>https://xyx404.github.io/post/20240421163000.html</link>
+      <guid>https://xyx404.github.io/post/20240421163000.html</guid>
       <pubDate>Sun, 21 Apr 2024 08:30:00 GMT</pubDate>
       
         
@@ -1421,14 +1510,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</category>
       
       
-      <comments>https://xyx404.github.io/2024/04/21/%E9%A2%98%E8%A7%A3%EF%BC%9AP10372%20[AHOI2024%20%E5%88%9D%E4%B8%AD%E7%BB%84]%20%E5%AE%B6%E5%BA%AD%E4%BD%9C%E4%B8%9A/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240421163000.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10312 [SHUPC 2024] 栅栏密码</title>
-      <link>https://xyx404.github.io/2024/04/06/%E9%A2%98%E8%A7%A3%EF%BC%9AP10312%20[SHUPC%202024]%20%E6%A0%85%E6%A0%8F%E5%AF%86%E7%A0%81/</link>
-      <guid>https://xyx404.github.io/2024/04/06/%E9%A2%98%E8%A7%A3%EF%BC%9AP10312%20[SHUPC%202024]%20%E6%A0%85%E6%A0%8F%E5%AF%86%E7%A0%81/</guid>
+      <link>https://xyx404.github.io/post/20240406145600.html</link>
+      <guid>https://xyx404.github.io/post/20240406145600.html</guid>
       <pubDate>Sat, 06 Apr 2024 06:56:00 GMT</pubDate>
       
         
@@ -1450,14 +1539,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</category>
       
       
-      <comments>https://xyx404.github.io/2024/04/06/%E9%A2%98%E8%A7%A3%EF%BC%9AP10312%20[SHUPC%202024]%20%E6%A0%85%E6%A0%8F%E5%AF%86%E7%A0%81/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240406145600.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10295 [CCC 2024 S1] Hat Circle</title>
-      <link>https://xyx404.github.io/2024/03/30/%E9%A2%98%E8%A7%A3%EF%BC%9AP10295%20[CCC%202024%20S1]%20Hat%20Circle/</link>
-      <guid>https://xyx404.github.io/2024/03/30/%E9%A2%98%E8%A7%A3%EF%BC%9AP10295%20[CCC%202024%20S1]%20Hat%20Circle/</guid>
+      <link>https://xyx404.github.io/post/20240330224300.html</link>
+      <guid>https://xyx404.github.io/post/20240330224300.html</guid>
       <pubDate>Sat, 30 Mar 2024 14:43:00 GMT</pubDate>
       
         
@@ -1477,14 +1566,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
       
       
-      <comments>https://xyx404.github.io/2024/03/30/%E9%A2%98%E8%A7%A3%EF%BC%9AP10295%20[CCC%202024%20S1]%20Hat%20Circle/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240330224300.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10291 [CCC 2024 J2] Dusa And The Yobis</title>
-      <link>https://xyx404.github.io/2024/03/30/%E9%A2%98%E8%A7%A3%EF%BC%9AP10291%20[CCC%202024%20J2]%20Dusa%20And%20The%20Yobis/</link>
-      <guid>https://xyx404.github.io/2024/03/30/%E9%A2%98%E8%A7%A3%EF%BC%9AP10291%20[CCC%202024%20J2]%20Dusa%20And%20The%20Yobis/</guid>
+      <link>https://xyx404.github.io/post/20240330220100.html</link>
+      <guid>https://xyx404.github.io/post/20240330220100.html</guid>
       <pubDate>Sat, 30 Mar 2024 14:01:00 GMT</pubDate>
       
         
@@ -1504,14 +1593,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</category>
       
       
-      <comments>https://xyx404.github.io/2024/03/30/%E9%A2%98%E8%A7%A3%EF%BC%9AP10291%20[CCC%202024%20J2]%20Dusa%20And%20The%20Yobis/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240330220100.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10292 [CCC 2024 J3] Bronze Count</title>
-      <link>https://xyx404.github.io/2024/03/30/%E9%A2%98%E8%A7%A3%EF%BC%9AP10292%20[CCC%202024%20J3]%20Bronze%20Count/</link>
-      <guid>https://xyx404.github.io/2024/03/30/%E9%A2%98%E8%A7%A3%EF%BC%9AP10292%20[CCC%202024%20J3]%20Bronze%20Count/</guid>
+      <link>https://xyx404.github.io/post/20240330215300.html</link>
+      <guid>https://xyx404.github.io/post/20240330215300.html</guid>
       <pubDate>Sat, 30 Mar 2024 13:53:00 GMT</pubDate>
       
         
@@ -1531,14 +1620,14 @@
       <category domain="https://xyx404.github.io/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">计数排序</category>
       
       
-      <comments>https://xyx404.github.io/2024/03/30/%E9%A2%98%E8%A7%A3%EF%BC%9AP10292%20[CCC%202024%20J3]%20Bronze%20Count/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240330215300.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10296 [CCC 2024 S2] Heavy-Light Composition</title>
-      <link>https://xyx404.github.io/2024/03/29/%E9%A2%98%E8%A7%A3%EF%BC%9AP10296%20[CCC%202024%20S2]%20Heavy-Light%20Composition/</link>
-      <guid>https://xyx404.github.io/2024/03/29/%E9%A2%98%E8%A7%A3%EF%BC%9AP10296%20[CCC%202024%20S2]%20Heavy-Light%20Composition/</guid>
+      <link>https://xyx404.github.io/post/20240329224600.html</link>
+      <guid>https://xyx404.github.io/post/20240329224600.html</guid>
       <pubDate>Fri, 29 Mar 2024 14:46:00 GMT</pubDate>
       
         
@@ -1558,14 +1647,14 @@
       <category domain="https://xyx404.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</category>
       
       
-      <comments>https://xyx404.github.io/2024/03/29/%E9%A2%98%E8%A7%A3%EF%BC%9AP10296%20[CCC%202024%20S2]%20Heavy-Light%20Composition/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240329224600.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>题解：P10265 [GESP样题 七级] 迷宫统计</title>
-      <link>https://xyx404.github.io/2024/03/26/%E9%A2%98%E8%A7%A3%EF%BC%9AP10265%20[GESP%E6%A0%B7%E9%A2%98%20%E4%B8%83%E7%BA%A7]%20%E8%BF%B7%E5%AE%AB%E7%BB%9F%E8%AE%A1/</link>
-      <guid>https://xyx404.github.io/2024/03/26/%E9%A2%98%E8%A7%A3%EF%BC%9AP10265%20[GESP%E6%A0%B7%E9%A2%98%20%E4%B8%83%E7%BA%A7]%20%E8%BF%B7%E5%AE%AB%E7%BB%9F%E8%AE%A1/</guid>
+      <link>https://xyx404.github.io/post/20240326223000.html</link>
+      <guid>https://xyx404.github.io/post/20240326223000.html</guid>
       <pubDate>Tue, 26 Mar 2024 14:30:00 GMT</pubDate>
       
         
@@ -1587,14 +1676,14 @@
       <category domain="https://xyx404.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</category>
       
       
-      <comments>https://xyx404.github.io/2024/03/26/%E9%A2%98%E8%A7%A3%EF%BC%9AP10265%20[GESP%E6%A0%B7%E9%A2%98%20%E4%B8%83%E7%BA%A7]%20%E8%BF%B7%E5%AE%AB%E7%BB%9F%E8%AE%A1/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20240326223000.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>P9941 题解</title>
-      <link>https://xyx404.github.io/2023/12/30/P9941%20%E9%A2%98%E8%A7%A3/</link>
-      <guid>https://xyx404.github.io/2023/12/30/P9941%20%E9%A2%98%E8%A7%A3/</guid>
+      <link>https://xyx404.github.io/post/20231230160800.html</link>
+      <guid>https://xyx404.github.io/post/20231230160800.html</guid>
       <pubDate>Sat, 30 Dec 2023 08:08:00 GMT</pubDate>
       
         
@@ -1618,7 +1707,7 @@
       <category domain="https://xyx404.github.io/tags/USACO/">USACO</category>
       
       
-      <comments>https://xyx404.github.io/2023/12/30/P9941%20%E9%A2%98%E8%A7%A3/#disqus_thread</comments>
+      <comments>https://xyx404.github.io/post/20231230160800.html#disqus_thread</comments>
       
     </item>
     
