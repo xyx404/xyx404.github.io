@@ -9,8 +9,95 @@
     <atom:link href="https://xyx404.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个普通的初中信息竞赛生的博客</description>
-    <pubDate>Wed, 15 Jan 2025 03:11:30 GMT</pubDate>
+    <pubDate>Mon, 03 Feb 2025 05:24:26 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>题解：AT_abc390_d [ABC390D] Stone XOR</title>
+      <link>https://xyx404.github.io/post/20250203121400.html</link>
+      <guid>https://xyx404.github.io/post/20250203121400.html</guid>
+      <pubDate>Mon, 03 Feb 2025 04:14:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.53/ABC390D.webp&quot; alt=&quot;封面&quot; /&gt;&lt;/p&gt;
+&lt;div class=&#39;liushen-tag-link&#39;&gt;&lt;a class=&quot;ta</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.53/ABC390D.webp" alt="封面" /></p><div class='liushen-tag-link'><a class="tag-Link" target="_blank" href="https://www.luogu.com.cn/article/qufx1erv">    <div class="tag-link-tips"> 引用站外地址，不保证站点的可用性和安全性</div>    <div class="tag-link-bottom">        <div class="tag-link-left" style="background-image: url(https://cdn.luogu.com.cn/upload/usericon/1123573.png);"></div>        <div class="tag-link-right">            <div class="tag-link-title">洛谷文章链接</div>            <div class="tag-link-sitename">xyx404</div>        </div>        <i class="fa-solid fa-angle-right"></i>    </div>    </a></div><h2 id="题意"><a class="markdownIt-Anchor" href="#题意"></a> 题意：</h2><p>给定 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 个袋子，每个袋子里有若干石子。每次操作可以选择两个袋子，将其中一个的所有石子倒入另一个。求所有操作结束后，各袋子石子数的异或和有多少种不同的可能值。</p><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路：</h2><p>观察发现最终异或和的值仅与分组方式有关。每次合并操作相当于将两个袋子的石子合并为一个新的袋子，最终的分组可以看作将初始的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 个袋子划分成若干非空子集，每个子集的石子总和构成最终的异或和。</p><p>可以通过动态规划逐步生成所有可能的分组方式。</p><p>处理每个石子堆时，对当前所有可能的状态进行扩展：</p><ol><li>新增分组，将当前石子堆作为独立分组。</li><li>合并到已有分组，将当前石子堆合并到任意一个已有分组中。</li></ol><p>最后进行去重统计。</p><h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码：</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">vector&lt;LL&gt;<span class="built_in">A</span>(<span class="number">20</span>);</span><br><span class="line">vector&lt;pair&lt;vector&lt;LL&gt;,LL&gt; &gt;cur;</span><br><span class="line">unordered_set&lt;LL&gt;ans;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">cin&gt;&gt;n;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)cin&gt;&gt;A[i];</span><br><span class="line">cur.<span class="built_in">emplace_back</span>(vector&lt;LL&gt;&#123;A[<span class="number">0</span>]&#125;,A[<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">vector&lt;pair&lt;vector&lt;LL&gt;,LL&gt; &gt;tamp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> g:cur)&#123;</span><br><span class="line">vector&lt;LL&gt;zhu=g.first;</span><br><span class="line">LL v=g.second;</span><br><span class="line"><span class="comment">// 新增分组</span></span><br><span class="line">vector&lt;LL&gt;newg=zhu;</span><br><span class="line">newg.<span class="built_in">emplace_back</span>(A[i]);</span><br><span class="line">LL nv=v^A[i];</span><br><span class="line">tamp.<span class="built_in">emplace_back</span>(newg,nv);</span><br><span class="line"><span class="comment">// 合并到已有分组</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;zhu.<span class="built_in">size</span>();j++)&#123;</span><br><span class="line">vector&lt;LL&gt;<span class="built_in">temp</span>(zhu);</span><br><span class="line">temp[j]+=A[i];</span><br><span class="line">LL val=v^zhu[j]^temp[j];</span><br><span class="line">tamp.<span class="built_in">emplace_back</span>(temp,val);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">cur=tamp;</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> g:cur)&#123;</span><br><span class="line">LL v=g.second;</span><br><span class="line">ans.<span class="built_in">insert</span>(v);</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;ans.<span class="built_in">size</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><p><a href="https://atcoder.jp/contests/abc390/submissions/62352793">AC 记录</a>。</p>]]></content:encoded>
+      
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
+      
+      
+      <category domain="https://xyx404.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/">循环结构</category>
+      
+      <category domain="https://xyx404.github.io/tags/%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/">分支结构</category>
+      
+      
+      <comments>https://xyx404.github.io/post/20250203121400.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>题解：P11641 【MX-X8-T0】「TAOI-3」分数</title>
+      <link>https://xyx404.github.io/post/20250131182300.html</link>
+      <guid>https://xyx404.github.io/post/20250131182300.html</guid>
+      <pubDate>Fri, 31 Jan 2025 10:23:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.53/P11641.webp&quot; alt=&quot;封面&quot; /&gt;&lt;/p&gt;
+&lt;div class=&#39;liushen-tag-link&#39;&gt;&lt;a class=&quot;tag</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.53/P11641.webp" alt="封面" /></p><div class='liushen-tag-link'><a class="tag-Link" target="_blank" href="https://www.luogu.com.cn/article/g7onnsui">    <div class="tag-link-tips"> 引用站外地址，不保证站点的可用性和安全性</div>    <div class="tag-link-bottom">        <div class="tag-link-left" style="background-image: url(https://cdn.luogu.com.cn/upload/usericon/1123573.png);"></div>        <div class="tag-link-right">            <div class="tag-link-title">洛谷文章链接</div>            <div class="tag-link-sitename">xyx404</div>        </div>        <i class="fa-solid fa-angle-right"></i>    </div>    </a></div><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路：</h2><p>语法题。</p><p>考点：循环结构和分支结构。</p><p>将两个批改结果的和分别存下来，如果第一次的和大于等于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>，则输出第二次批改结果的和，否则输出第一次批改结果的和。</p><h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码：</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long </span></span><br><span class="line"><span class="type">int</span> T=<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> n; </span><br><span class="line"><span class="type">int</span> a[<span class="number">15</span>],b[<span class="number">15</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">cin&gt;&gt;n&gt;&gt;T;</span><br><span class="line">LL sum1=<span class="number">0</span>,sum2=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;a[i],sum1+=a[i];</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;b[i],sum2+=b[i];</span><br><span class="line"><span class="keyword">if</span>(sum1&gt;=T)cout&lt;&lt;sum2&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">else</span> cout&lt;&lt;sum1&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
+      
+      
+      <category domain="https://xyx404.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/">循环结构</category>
+      
+      <category domain="https://xyx404.github.io/tags/%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/">分支结构</category>
+      
+      
+      <comments>https://xyx404.github.io/post/20250131182300.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>题解：P1030 [NOIP2001 普及组] 求先序排列</title>
+      <link>https://xyx404.github.io/post/20250126213700.html</link>
+      <guid>https://xyx404.github.io/post/20250126213700.html</guid>
+      <pubDate>Sun, 26 Jan 2025 13:37:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.53/P1030.webp&quot; alt=&quot;封面&quot; /&gt;&lt;/p&gt;
+&lt;div class=&#39;liushen-tag-link&#39;&gt;&lt;a class=&quot;tag-</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.53/P1030.webp" alt="封面" /></p><div class='liushen-tag-link'><a class="tag-Link" target="_blank" href="https://www.luogu.com.cn/article/gvn23fp6">    <div class="tag-link-tips"> 引用站外地址，不保证站点的可用性和安全性</div>    <div class="tag-link-bottom">        <div class="tag-link-left" style="background-image: url(https://cdn.luogu.com.cn/upload/usericon/1123573.png);"></div>        <div class="tag-link-right">            <div class="tag-link-title">洛谷文章链接</div>            <div class="tag-link-sitename">xyx404</div>        </div>        <i class="fa-solid fa-angle-right"></i>    </div>    </a></div><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路：</h2><p>递归构建二叉树，并输出先序排列。</p><p>首先要知道后序排列、中序排列是怎么构成的。<br />后序排列是先左，然后右，最后根；中序排列是先左，然后根，最后右。</p><p>依此我们可以确定后序排列中的最后一个一定是这个树的根，我们可以将根的左右两边分为两个子树，左子树和右子树，在中序排列中在根左边的是左子树，在右边的是右子树，最后便可构建出二叉树。</p><p>例如样例：<br />给出了中序排列为 BADC，后序排列为 BDCA，可以看的后序排列的最后一个字母是 A，那么说明 A 是根，然后我们在中序排列中找到 A，此时 A 左边的是左子树里的，右边是右子树里的。</p><p>所以现在可以转换为：</p><ul><li>左子树：中序排列为 B，后序排列是 B。</li><li>右子树：中序排列为 DC，后序排列是 DC。</li></ul><p>接着我们一直递归直到不能递归就能构建出二叉树了。</p><p>样例可能有点小不好理解这里给出另一组再进行一次解释。<br />当中序排列为 CBEAGDF，后序排列为 CEBGFDA 时。<br />后序排列的最后是 A，所以 A 是根，然后再确定左、右子树。</p><p>然后当有左子树时，把它当做一个独立的二叉树处理，查询它的后序排列，确定根，然后接着确定这个二叉树的左、右子树；当有右子树时进行一样的操作。</p><p>本树构建过程画出如下的图。</p><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/zoo058vl.png" alt="" /></p><p>当然在代码中我们无法同时处理左、右两个子树，所以在代码中我们要将它们分别处理。</p><p>总的来说就是由后序排列确定根，由中序排列确定左子树和右子树，然后继续递归直到不能递归。</p><p>为了输出先序排序，我们可以先把每次的根输出，然后处理左子树，最后再处理右子树，因为先序排序是先根，然后左，最后右。</p><h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码：</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long </span></span><br><span class="line">string a,b;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line"><span class="type">char</span> data;</span><br><span class="line"><span class="type">int</span> l,r;</span><br><span class="line">&#125;tree[<span class="number">60</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">jiangshu</span><span class="params">(<span class="type">int</span> al,<span class="type">int</span> ar,<span class="type">int</span> bl,<span class="type">int</span> br,<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line"><span class="type">int</span> root=a.<span class="built_in">find</span>(b[br]);</span><br><span class="line">tree[k].data=b[br];</span><br><span class="line">cout&lt;&lt;tree[k].data;</span><br><span class="line"><span class="keyword">if</span>(root&gt;al)&#123;</span><br><span class="line">tree[k].l=<span class="number">2</span>*k;</span><br><span class="line"><span class="built_in">jiangshu</span>(al,root<span class="number">-1</span>,bl,br-ar+root<span class="number">-1</span>,<span class="number">2</span>*k);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(root&lt;ar)&#123;</span><br><span class="line">tree[k].r=<span class="number">2</span>*k<span class="number">+1</span>;</span><br><span class="line">        <span class="built_in">jiangshu</span>(root<span class="number">+1</span>,ar,br+root-al,br<span class="number">-1</span>,<span class="number">2</span>*k<span class="number">+1</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    <span class="built_in">jiangshu</span>(<span class="number">0</span>,a.<span class="built_in">size</span>()<span class="number">-1</span>,<span class="number">0</span>,b.<span class="built_in">size</span>()<span class="number">-1</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/NOIP/">NOIP</category>
+      
+      
+      <category domain="https://xyx404.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</category>
+      
+      
+      <comments>https://xyx404.github.io/post/20250126213700.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>题解：P1048 [NOIP2005 普及组] 采药</title>
@@ -975,9 +1062,9 @@
       <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
       
       
-      <category domain="https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
-      
       <category domain="https://xyx404.github.io/tags/%E5%88%86%E7%B1%BB%E8%AE%A8%E8%AE%BA/">分类讨论</category>
+      
+      <category domain="https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
       
       <category domain="https://xyx404.github.io/tags/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/">等差数列</category>
       
