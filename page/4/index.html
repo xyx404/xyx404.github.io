@@ -60,7 +60,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-02-19 19:20:53',
+  postUpdate: '2025-02-22 11:32:40',
   postMainColor: '',
 }</script><noscript><style type="text/css">
   #nav {
@@ -242,27 +242,27 @@ if (false) {
       </a>
     </div>
     
-    <div class="catalog-list-item" id="/categories/洛谷题解/UVA/">
-      <a href="/categories/洛谷题解/UVA/">
-        UVA
-      </a>
-    </div>
-    
     <div class="catalog-list-item" id="/categories/洛谷题解/CSP-S-提高级/">
       <a href="/categories/洛谷题解/CSP-S-提高级/">
         CSP S 提高级
       </a>
     </div>
     
-    <div class="catalog-list-item" id="/categories/hexo/">
-      <a href="/categories/hexo/">
-        hexo
-      </a>
-    </div>
-    
     <div class="catalog-list-item" id="/categories/笔记/">
       <a href="/categories/笔记/">
         笔记
+      </a>
+    </div>
+    
+    <div class="catalog-list-item" id="/categories/洛谷题解/UVA/">
+      <a href="/categories/洛谷题解/UVA/">
+        UVA
+      </a>
+    </div>
+    
+    <div class="catalog-list-item" id="/categories/hexo/">
+      <a href="/categories/hexo/">
+        hexo
       </a>
     </div>
     
@@ -278,15 +278,15 @@ if (false) {
       </a>
     </div>
     
-    <div class="catalog-list-item" id="/categories/洛谷题解/GESP-样题/">
-      <a href="/categories/洛谷题解/GESP-样题/">
-        GESP 样题
-      </a>
-    </div>
-    
     <div class="catalog-list-item" id="/categories/笔记/c-STL/">
       <a href="/categories/笔记/c-STL/">
         c++ STL
+      </a>
+    </div>
+    
+    <div class="catalog-list-item" id="/categories/洛谷题解/GESP-样题/">
+      <a href="/categories/洛谷题解/GESP-样题/">
+        GESP 样题
       </a>
     </div>
     
@@ -370,7 +370,7 @@ social:  # Github: https://github.com/anzhiyu-c || anzhiyu-icon-github  # BiliBi
 排序过后枚举情况，共有两种情况，第一种完全不向右侧挖掘，第二种向右走两次向左走一次，每次枚举完情况后更新 ansansans 的值。
 最终的结果为在输入中 ans+cntans+cntans+cnt。
  代码：
-#include&lt;bits/stdc++.h&gt;using namespace std; #define LL long long#define itn int#define ull unsigned long longvector&lt;LL&gt;a,b;// 分别存储正数和负数(取绝对值后)int main(){	LL n,m;	cin&gt;&gt;n&gt;&gt;m;	LL cnt=0;// 计算坐标为 0 的矿洞数量	a.push_back(0);// 下标从 1 开 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/20240818132100.html')"><div class="post_cover left"><a href="/post/20240818132100.html" title="题解：P10885 【MX-S3-T1】「FeOI Round 1」野心" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.png&quot;" data-lazy-src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.0.3/img/wenz/P10885.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="题解：P10885 【MX-S3-T1】「FeOI Round 1」野心" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">洛谷题解</div><a class="unvisited-post" href="/post/20240818132100.html" title="题解：P10885 【MX-S3-T1】「FeOI Round 1」野心">未读</a></div><a class="article-title" href="/post/20240818132100.html" title="题解：P10885 【MX-S3-T1】「FeOI Round 1」野心">题解：P10885 【MX-S3-T1】「FeOI Round 1」野心</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-18T05:21:00.000Z" title="发表于 2024-08-18 13:21:00" time="2024-08-18 13:21:00">2024-08-18</time><time class="time_hidden" datetime="2024-12-15T05:31:13.856Z" title="更新于 2024-12-15 13:31:13" time="2024-12-15 13:31:13">2024-12-15</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E6%95%B0%E5%AD%A6/" event.cancelbubble="" onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>数学</span></a><a class="article-meta__tags" href="/tags/%E5%88%86%E7%B1%BB%E8%AE%A8%E8%AE%BA/" event.cancelbubble="" onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>分类讨论</span></a><a class="article-meta__tags" href="/tags/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/" event.cancelbubble="" onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>等差数列</span></a></span></div><div class="content">
+#include&lt;bits/stdc++.h&gt;using namespace std; #define LL long long#define itn int#define ull unsigned long longvector&lt;LL&gt;a,b;// 分别存储正数和负数(取绝对值后)int main(){	LL n,m;	cin&gt;&gt;n&gt;&gt;m;	LL cnt=0;// 计算坐标为 0 的矿洞数量	a.push_back(0);// 下标从 1 开 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/20240818132100.html')"><div class="post_cover left"><a href="/post/20240818132100.html" title="题解：P10885 【MX-S3-T1】「FeOI Round 1」野心" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.png&quot;" data-lazy-src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.0.3/img/wenz/P10885.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="题解：P10885 【MX-S3-T1】「FeOI Round 1」野心" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">洛谷题解</div><a class="unvisited-post" href="/post/20240818132100.html" title="题解：P10885 【MX-S3-T1】「FeOI Round 1」野心">未读</a></div><a class="article-title" href="/post/20240818132100.html" title="题解：P10885 【MX-S3-T1】「FeOI Round 1」野心">题解：P10885 【MX-S3-T1】「FeOI Round 1」野心</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-18T05:21:00.000Z" title="发表于 2024-08-18 13:21:00" time="2024-08-18 13:21:00">2024-08-18</time><time class="time_hidden" datetime="2024-12-15T05:31:13.856Z" title="更新于 2024-12-15 13:31:13" time="2024-12-15 13:31:13">2024-12-15</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%88%86%E7%B1%BB%E8%AE%A8%E8%AE%BA/" event.cancelbubble="" onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>分类讨论</span></a><a class="article-meta__tags" href="/tags/%E6%95%B0%E5%AD%A6/" event.cancelbubble="" onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>数学</span></a><a class="article-meta__tags" href="/tags/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/" event.cancelbubble="" onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>等差数列</span></a></span></div><div class="content">
  思路：
 题目中给出的是一个排列 ppp。
 排列说明了这个数组是由一到 nnn 组成的，且不重复。
@@ -440,7 +440,7 @@ s.size()
 
 
 
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="anzhiyufont anzhiyu-icon-chevron-left fa-fw" style="font-weight: inherit; font-size: 1rem;"></i><div class="pagination_tips_prev">上页</div></a><a class="page-number" href="/">1</a><span class="space">…</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">…</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/5/#content-inner"><div class="pagination_tips_next">下页</div><i style="font-weight: inherit; font-size: 1rem;" class="anzhiyufont anzhiyu-icon-chevron-right fa-fw"></i></a><div class="toPageGroup"><input id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" onkeyup="this.value=this.value.replace(/[^u4e00-u9fa5w]/g,'')" aria-label="toPage"><a id="toPageButton" onclick="anzhiyu.toPage()"><i class="anzhiyufont anzhiyu-icon-angles-right" style="font-weight: inherit; font-size: 1rem;"></i></a></div></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.png&quot;" data-lazy-src="https://cdn.luogu.com.cn/upload/usericon/1123573.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.png&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"></div></div><div class="author-info__description">你好呀，本网站使用 Hexo anzhiyu + github/vercel 搭建，随便看看吧。<br>本博客字体为汉仪润圆-75w。<br>联系本人可以发邮件给 xyx404@hotmail.com。</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><h1 class="author-info__name">xyx404</h1><div class="author-info__desc">一个普通的初中信息竞赛生</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://www.luogu.com.cn/user/1123573" target="_blank" title="luogu"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-luogu"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/1491072072" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a><a class="social-icon faa-parent animated-hover" href="https://github.com/xyx404" target="_blank" title="Github"><i class="fa-brands fa-github faa-tada"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content"><span>Hello，我是 xyx404，欢迎你！</span><div id="welcome-info"></div></div></div><div class="card-widget card-latest-comments"><div class="item-headline"><i class="fas fa-comments"></i><span>最新评论</span></div><div class="item-content"><a href="/messages/" class="headline-right" title="查看更多">
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="anzhiyufont anzhiyu-icon-chevron-left fa-fw" style="font-weight: inherit; font-size: 1rem;"></i><div class="pagination_tips_prev">上页</div></a><a class="page-number" href="/">1</a><span class="space">…</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">…</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/5/#content-inner"><div class="pagination_tips_next">下页</div><i style="font-weight: inherit; font-size: 1rem;" class="anzhiyufont anzhiyu-icon-chevron-right fa-fw"></i></a><div class="toPageGroup"><input id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" onkeyup="this.value=this.value.replace(/[^u4e00-u9fa5w]/g,'')" aria-label="toPage"><a id="toPageButton" onclick="anzhiyu.toPage()"><i class="anzhiyufont anzhiyu-icon-angles-right" style="font-weight: inherit; font-size: 1rem;"></i></a></div></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.png&quot;" data-lazy-src="https://cdn.luogu.com.cn/upload/usericon/1123573.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.png&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"></div></div><div class="author-info__description">你好呀，本网站使用 Hexo anzhiyu + github/vercel 搭建，随便看看吧。<br>本博客字体为汉仪润圆-75w。<br>联系本人可以发邮件给 xyx404@hotmail.com。</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><h1 class="author-info__name">xyx404</h1><div class="author-info__desc">一个普通的初中信息竞赛生</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://www.luogu.com.cn/user/1123573" target="_blank" title="luogu"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-luogu"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/1491072072" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a><a class="social-icon faa-parent animated-hover" href="https://github.com/xyx404" target="_blank" title="Github"><i class="fa-brands fa-github faa-tada"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content"><span>由于 us.kg 域名炸了，所以可能需要一段时间更新域名，评论系统和朋友圈暂时不能用了，看什么时候有时间改改吧。</span><span>Hello，我是 xyx404，欢迎你！</span><div id="welcome-info"></div></div></div><div class="card-widget card-latest-comments"><div class="item-headline"><i class="fas fa-comments"></i><span>最新评论</span></div><div class="item-content"><a href="/messages/" class="headline-right" title="查看更多">
   <i class="fas fa-angle-right"></i>
 </a>
 <div class="aside-list" id="latest-comments"></div>
