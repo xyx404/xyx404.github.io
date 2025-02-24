@@ -13,7 +13,7 @@ function danmu() {
   if (data) Danmaku.batchSend(data, true);
   else {
     let ls = []
-    fetch('https://xyx404.us.kg/', { // 此处替换成自己的twikoo地址
+    fetch('https://twikoo.xyx404.dedyn.io/', { // 此处替换成自己的twikoo地址
       method: "POST",
       body: JSON.stringify({
         "event": "GET_RECENT_COMMENTS",
