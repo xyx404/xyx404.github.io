@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>题解：AT_arc033_2 [ARC033B] メタ構文変数</title>
+      <link href="/post/20250409201300.html"/>
+      <url>/post/20250409201300.html</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.57/ATarc0332.jpg" alt="封面" /></p><div class='liushen-tag-link'><a class="tag-Link" target="_blank" href="https://www.luogu.com.cn/article/uev918iz">    <div class="tag-link-tips"> 引用站外地址，不保证站点的可用性和安全性</div>    <div class="tag-link-bottom">        <div class="tag-link-left" style="background-image: url(https://cdn.luogu.com.cn/upload/usericon/1123573.png);"></div>        <div class="tag-link-right">            <div class="tag-link-title">洛谷文章链接</div>            <div class="tag-link-sitename">xyx404</div>        </div>        <i class="fa-solid fa-angle-right"></i>    </div>    </a></div><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路：</h2><p>题目要求求两个集合中相同的元素个数除以两个集合合并在一起并去重后的元素个数。</p><p>考虑使用 <code>set</code>。</p><p>定义两个 <code>set</code>，第一个 <code>set</code> 存第一个集合中的元素，第二个 <code>set</code> 存两个集合的元素。</p><p>定义一个变量做两个集合中相同元素的计数器。</p><p>在输入时，把两个集合中的元素都放进第二个 <code>set</code> 里。</p><p>在输入第二个集合时，顺便判断这个元素是否在第一个集合中出现过，出现过让计数器加一。</p><p>最后输出两个集合中相同的元素个数除以两个集合合并在一起并去重后的元素个数就行了。</p><p><code>set</code> 会自动去重。</p><h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码：</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line">set&lt;string&gt;a,all;</span><br><span class="line">string x;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">cin&gt;&gt;x;</span><br><span class="line">a.<span class="built_in">insert</span>(x);</span><br><span class="line">all.<span class="built_in">insert</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> siz=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">cin&gt;&gt;x;</span><br><span class="line">all.<span class="built_in">insert</span>(x);</span><br><span class="line"><span class="keyword">if</span>(a.<span class="built_in">count</span>(x))siz++;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;<span class="built_in">double</span>(siz)/all.<span class="built_in">size</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 洛谷题解 </category>
+          
+          <category> AtCoder </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 哈希 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>题解：AT_abc397_c [ABC397C] Variety Split Easy</title>
       <link href="/post/20250316083100.html"/>
       <url>/post/20250316083100.html</url>
