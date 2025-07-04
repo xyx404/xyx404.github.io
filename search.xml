@@ -15,12 +15,14 @@
           
           <category> 洛谷题解 </category>
           
+          <category> UVA </category>
+          
       </categories>
       
       
         <tags>
             
-            <tag> 最短路 </tag>
+            <tag> dfs </tag>
             
         </tags>
       
@@ -39,6 +41,8 @@
       <categories>
           
           <category> 洛谷题解 </category>
+          
+          <category> UVA </category>
           
       </categories>
       
@@ -64,6 +68,8 @@
       <categories>
           
           <category> 洛谷题解 </category>
+          
+          <category> UVA </category>
           
       </categories>
       

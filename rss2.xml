@@ -9,7 +9,7 @@
     <atom:link href="https://xyx404.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个普通的初中信息竞赛生的博客</description>
-    <pubDate>Fri, 04 Jul 2025 07:17:50 GMT</pubDate>
+    <pubDate>Fri, 04 Jul 2025 07:52:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -31,8 +31,10 @@
       
       <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
       
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/UVA/">UVA</category>
       
-      <category domain="https://xyx404.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">最短路</category>
+      
+      <category domain="https://xyx404.github.io/tags/dfs/">dfs</category>
       
       
       <comments>https://xyx404.github.io/post/20250704120300.html#disqus_thread</comments>
@@ -57,6 +59,8 @@
       
       
       <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/UVA/">UVA</category>
       
       
       <category domain="https://xyx404.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">最短路</category>
@@ -84,6 +88,8 @@
       
       
       <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/UVA/">UVA</category>
       
       
       <category domain="https://xyx404.github.io/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/">高精度</category>
