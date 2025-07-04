@@ -1,0 +1,24 @@
+    /* 历史事件轮播样式 */
+    .history-swiper {
+      height: 150px;
+      margin-top: 15px;
+      color: #fff;
+    }
+    .history-swiper .swiper-slide {
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .history-year {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #f8d86a;  /* 强调年份的黄色 */
+      margin-bottom: 8px;
+    }
+    .history-event {
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
