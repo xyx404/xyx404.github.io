@@ -9,8 +9,37 @@
     <atom:link href="https://xyx404.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个普通的初中信息竞赛生的博客</description>
-    <pubDate>Mon, 04 Aug 2025 12:15:53 GMT</pubDate>
+    <pubDate>Tue, 26 Aug 2025 12:11:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>题解：UVA11577 Letter Frequency</title>
+      <link>https://xyx404.github.io/post/20250824162800.html</link>
+      <guid>https://xyx404.github.io/post/20250824162800.html</guid>
+      <pubDate>Sun, 24 Aug 2025 08:28:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.62/UVA11577.jpg&quot; alt=&quot;封面&quot; /&gt;&lt;/p&gt;
+&lt;div class=&#39;liushen-tag-link&#39;&gt;&lt;a class=&quot;ta</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.62/UVA11577.jpg" alt="封面" /></p><div class='liushen-tag-link'><a class="tag-Link" target="_blank" href="https://www.luogu.com.cn/article/m2xb6vwa">    <div class="tag-link-tips"> 引用站外地址，不保证站点的可用性和安全性</div>    <div class="tag-link-bottom">        <div class="tag-link-left" style="background-image: url(https://cdn.luogu.com.cn/upload/usericon/1123573.png);"></div>        <div class="tag-link-right">            <div class="tag-link-title">洛谷文章链接</div>            <div class="tag-link-sitename">xyx404</div>        </div>        <i class="fa-solid fa-angle-right"></i>    </div>    </a></div><h2 id="简要题意"><a class="markdownIt-Anchor" href="#简要题意"></a> 简要题意</h2><p>给出多组字符串，你需要输出每个字符串中出现次数最多的字母（小写输出），如果有多个，则按字典序输出。</p><p>输入可能包含大写字母，但是也要计入字母输出次数。</p><p>字符串中间可能有空格。</p><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2><p>因为字符串中间可能有空格，所以我们需要整行输入，使用 <code>getlline</code>。</p><p>考虑使用 <code>map</code> 作为桶。</p><p>把字符串的字母全部放进桶中。</p><p>处理完字符串后找到出现次数最多的字母，最后按字典序输出。</p><h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="type">int</span> T;</span><br><span class="line">string s;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//ios::sync_with_stdio(0);</span></span><br><span class="line">    <span class="comment">//cin.tie(0);cout.tie(0); 这个注释删了就不能用 getchar() 了</span></span><br><span class="line">    cin&gt;&gt;T;</span><br><span class="line">    <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">getline</span>(cin,s);</span><br><span class="line">        <span class="comment">//cout&lt;&lt;s&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line">        unordered_map&lt;<span class="type">char</span>,<span class="type">int</span>&gt;mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]&lt;=<span class="string">&#x27;z&#x27;</span>&amp;&amp;s[i]&gt;=<span class="string">&#x27;a&#x27;</span>)mp[s[i]]++;</span><br><span class="line">            <span class="keyword">if</span>(s[i]&lt;=<span class="string">&#x27;Z&#x27;</span>&amp;&amp;s[i]&gt;=<span class="string">&#x27;A&#x27;</span>)mp[s[i]-<span class="string">&#x27;A&#x27;</span>+<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> maxx=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> i=<span class="string">&#x27;a&#x27;</span>;i&lt;=<span class="string">&#x27;z&#x27;</span>;i++)&#123;</span><br><span class="line">            maxx=<span class="built_in">max</span>(maxx,mp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> i=<span class="string">&#x27;a&#x27;</span>;i&lt;=<span class="string">&#x27;z&#x27;</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp[i]==maxx)cout&lt;&lt;i;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">｀　　　　　　　　　　　　　　　　　　　　　　　４　　　　０００　　　　　　４</span></span><br><span class="line"><span class="comment">　　　　　　　　　　　　　　　　　　　　　　　４４　　　０　　　０　　　　４４</span></span><br><span class="line"><span class="comment">ｘ　　　ｘ　　ｙ　　　ｙ　　ｘ　　　ｘ　　　　４４　　　０　　　０　　　　４４</span></span><br><span class="line"><span class="comment">ｘ　　　ｘ　　ｙ　　　ｙ　　ｘ　　　ｘ　　　４　４　　　０　　　０　　　４　４</span></span><br><span class="line"><span class="comment">　ｘ　ｘ　　　ｙ　　　ｙ　　　ｘ　ｘ　　　　４　４　　　０　　　０　　　４　４</span></span><br><span class="line"><span class="comment">　　ｘ　　　　　ｙ　ｙ　　　　　ｘ　　　　４　　４　　　０　　　０　　４　　４</span></span><br><span class="line"><span class="comment">　ｘ　ｘ　　　　ｙ　ｙ　　　　ｘ　ｘ　　　４４４４４　　０　　　０　　４４４４４</span></span><br><span class="line"><span class="comment">ｘ　　　ｘ　　　　ｙ　　　　ｘ　　　ｘ　　　　　４　　　０　　　０　　　　　４</span></span><br><span class="line"><span class="comment">ｘ　　　ｘ　　　　ｙ　　　　ｘ　　　ｘ　　　　　４　　　　０００　　　　　　４</span></span><br><span class="line"><span class="comment">　　　　　　　ｙｙ</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
+      
+      <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/UVA/">UVA</category>
+      
+      
+      <category domain="https://xyx404.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</category>
+      
+      
+      <comments>https://xyx404.github.io/post/20250824162800.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>题解：P13457Minimum Scalar Product</title>
