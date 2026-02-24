@@ -9,8 +9,32 @@
     <atom:link href="https://xyx404.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个普通的初中信息竞赛生的博客</description>
-    <pubDate>Fri, 28 Nov 2025 06:16:20 GMT</pubDate>
+    <pubDate>Tue, 24 Feb 2026 05:17:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>计划转到 Hugo</title>
+      <link>https://xyx404.github.io/post/20260224130800.html</link>
+      <guid>https://xyx404.github.io/post/20260224130800.html</guid>
+      <pubDate>Tue, 24 Feb 2026 05:08:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.67/Hugo1.jpg&quot; alt=&quot;封面&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;计划在有时间的时候把博客转到 hugo。&lt;/p&gt;
+</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.67/Hugo1.jpg" alt="封面" /></p><p>计划在有时间的时候把博客转到 hugo。</p>]]></content:encoded>
+      
+      
+      
+      
+      <comments>https://xyx404.github.io/post/20260224130800.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>NOIP 模拟考记录</title>
