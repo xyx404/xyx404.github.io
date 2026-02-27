@@ -5,10 +5,10 @@
     
     <entry>
       <title>计划转到 Hugo</title>
-      <link href="/post/20260224130800.html"/>
-      <url>/post/20260224130800.html</url>
+      <link href="/post/20260227130800.html"/>
+      <url>/post/20260227130800.html</url>
       
-        <content type="html"><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.67/Hugo1.jpg" alt="封面" /></p><p>计划在有时间的时候把博客转到 hugo。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.67/Hugo1.jpg" alt="封面" /></p><p>计划在有时间的时候把博客由 hexo 转向其他的。</p>]]></content>
       
       
       
@@ -1673,9 +1673,9 @@
       
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 分类讨论 </tag>
+            
+            <tag> 数学 </tag>
             
             <tag> 等差数列 </tag>
             
