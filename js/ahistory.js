@@ -14,7 +14,7 @@
           }
 
           // 3. 获取历史数据
-          fetch('https://api.nsmao.net/api/history/query?key=s5PgSHnz87tVfJCgbc3wE83i1R')
+          fetch('https://v1.nsuuu.com/api/history')
             .then(response => response.json())
             .then(data => {
               if (data.code === 200) {
