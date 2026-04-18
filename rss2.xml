@@ -9,7 +9,7 @@
     <atom:link href="https://xyx404.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个普通的初中信息竞赛生的博客</description>
-    <pubDate>Sat, 18 Apr 2026 03:51:48 GMT</pubDate>
+    <pubDate>Sat, 18 Apr 2026 04:20:05 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -20,13 +20,13 @@
       
         
         
-      <description>&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.67/Hugo1.jpg&quot; alt=&quot;封面&quot; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.67/hugo1.jpg&quot; alt=&quot;封面&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://hugo.xyx404.dedyn.io/&quot;&gt;Hu</description>
         
       
       
       
-      <content:encoded><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.67/Hugo1.jpg" alt="封面" /></p><p><a href="https://hugo.xyx404.dedyn.io/">Hugo 博客</a>已经上线（虽然还有很多没弄）</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p><img src="https://fastly.jsdelivr.net/npm/xyx404blogphoto@1.2.67/hugo1.jpg" alt="封面" /></p><p><a href="https://hugo.xyx404.dedyn.io/">Hugo 博客</a>已经上线（虽然还有很多没弄）</p>]]></content:encoded>
       
       
       
@@ -1829,9 +1829,9 @@
       <category domain="https://xyx404.github.io/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/">洛谷题解</category>
       
       
-      <category domain="https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
-      
       <category domain="https://xyx404.github.io/tags/%E5%88%86%E7%B1%BB%E8%AE%A8%E8%AE%BA/">分类讨论</category>
+      
+      <category domain="https://xyx404.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
       
       <category domain="https://xyx404.github.io/tags/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/">等差数列</category>
       
